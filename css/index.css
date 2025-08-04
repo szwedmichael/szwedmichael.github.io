@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root{
-
     --btn-color: #fdfdfd;/* button color*/
-    --btn-bg: #155eef;/* button bg color*/
-
-    --primary-text-color: #155eef;
-    --link-hover: #155eef;
-    --input-hover-bd-color: #155eef;
+    --btn-bg: linear-gradient(135deg, #f2709c, #ff9472);/* button bg gradient*/
+    
+    --primary-color-1: #f2709c; /* Primary gradient color 1 */
+    --primary-color-2: #ff9472; /* Primary gradient color 2 */
+    --primary-gradient: linear-gradient(135deg, #f2709c, #ff9472);
+    
+    --primary-text-color: #f2709c;
+    --link-hover: #f2709c;
+    --input-hover-bd-color: #ff9472;
 }
-
 
 html {
     scroll-behavior: smooth;
@@ -20,7 +22,6 @@ header{
     /* background-color: #fff;
     color: #000; */
 }
-
 
 header > .collapsible-header{
     display: flex;
@@ -45,7 +46,6 @@ header > .collapsible-header{
     transition: background-color 0.5s, color 0.5s;
 }
 
-
 .header-links:hover {
     color: var(--link-hover);
 }
@@ -67,19 +67,31 @@ header > .collapsible-header{
     width: max-content;
     border-radius: 6px;
     color: var(--btn-color);
-    background-color: var(--btn-bg);
+    background: var(--btn-bg);
     justify-content: center;
     align-items: center;
     display: flex;
     cursor: pointer;
+    border: none;
+    text-decoration: none;
 }
 
 .btn:hover{
-
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(242, 112, 156, 0.3);
 }
 
 .btn:disabled{
     cursor: default;
+    opacity: 0.6;
+}
+
+/* Gradient text utility class */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .input{
@@ -104,7 +116,6 @@ header > .collapsible-header{
     border-bottom: 3px solid #fd0101;
 }
 
-
 /* Navigation dots styling */
 .dots-container {
     text-align: center;
@@ -117,9 +128,8 @@ header > .collapsible-header{
 }
 
 .footer-link:hover{
-    color: #483cf4;
+    color: var(--primary-color-1);
 }
-
 
 .review-container {
     position: relative;
@@ -166,6 +176,23 @@ header > .collapsible-header{
     /* background-color: #dedddd; */
 }
 
+/* Waitlist section styling */
+.waitlist-section {
+    background: linear-gradient(135deg, rgba(242, 112, 156, 0.1), rgba(255, 148, 114, 0.1));
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* Feature icons with gradient hover effect */
+.feature-icon {
+    transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.1);
+}
+
 @media not all and (min-width: 1024px) {
     header .collapsible-header {
         position: fixed;
@@ -190,5 +217,4 @@ header > .collapsible-header{
     .header-links{
         color: black;
     }
-    
 }
