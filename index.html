@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sugarlytics - Diabetes Data Analytics</title>
+    <title>Sugarlytics - Personalized Insulin Dosing for Type 1 Diabetes</title>
     <meta
       name="description"
-      content="Visualize and understand your diabetes data better. Connect devices, track patterns, share with your care team."
+      content="Stop guessing insulin doses. Sugarlytics learns from your patterns to provide personalized dosing recommendations that adapt to your unique biology."
     />
     <link
       rel="shortcut icon"
@@ -20,13 +20,16 @@
     />
     <style>
       .gradient-text {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
       .gradient-bg {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      }
+      .secondary-gradient {
+        background: linear-gradient(135deg, #10b981, #059669);
       }
       .glass-effect {
         background: rgba(255, 255, 255, 0.1);
@@ -42,19 +45,20 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+  <body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
     <!-- Header -->
     <header class="absolute top-0 z-20 w-full px-6 py-4">
       <nav class="flex items-center justify-between max-w-7xl mx-auto">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-            <i class="bi bi-graph-up text-white text-xl"></i>
+            <i class="bi bi-bullseye text-white text-xl"></i>
           </div>
           <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
         </div>
         <div class="hidden md:flex space-x-8">
-          <a href="#features" class="text-gray-700 hover:text-pink-500 transition-colors">Features</a>
-          <a href="#about" class="text-gray-700 hover:text-pink-500 transition-colors">About</a>
+          <a href="#problem" class="text-gray-700 hover:text-blue-600 transition-colors">Why Now</a>
+          <a href="#solution" class="text-gray-700 hover:text-blue-600 transition-colors">How It Works</a>
+          <a href="#founder" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
         </div>
       </nav>
     </header>
@@ -64,20 +68,40 @@
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">
           <div class="space-y-4">
+            <div class="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+              <i class="bi bi-lightbulb"></i>
+              <span>Built by a T1D engineer</span>
+            </div>
             <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-              <span class="text-gray-900">Understand your</span><br>
-              <span class="gradient-text">diabetes data</span>
+              <span class="text-gray-900">Stop guessing</span><br>
+              <span class="gradient-text">insulin doses</span>
             </h1>
             <p class="text-xl text-gray-600 max-w-lg">
-              Visualize patterns, connect your devices, and share insights with your healthcare team. No medical advice—just better data understanding.
+              Pizza hits different than pasta. Your 3pm insulin works differently than 8am. Sugarlytics learns your unique patterns to recommend personalized doses that adapt to your real-world responses.
             </p>
+          </div>
+
+          <!-- Key Stats -->
+          <div class="grid grid-cols-3 gap-4 py-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-blue-600">1.6M</div>
+              <div class="text-sm text-gray-600">Americans with T1D</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-green-600">750K+</div>
+              <div class="text-sm text-gray-600">CGM users</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-purple-600">50%+</div>
+              <div class="text-sm text-gray-600">Want better tools</div>
+            </div>
           </div>
 
           <!-- Waitlist Form -->
           <div class="space-y-4">
             <div class="flex items-center space-x-2">
-              <i class="bi bi-clock text-pink-500"></i>
-              <span class="text-sm font-medium text-gray-700">Coming Soon • Join 500+ people on the waitlist</span>
+              <i class="bi bi-clock text-blue-500"></i>
+              <span class="text-sm font-medium text-gray-700">Early Access • Free trial then $5-10/month</span>
             </div>
             
             <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -87,79 +111,67 @@
                 name="email"
                 required
                 placeholder="Enter your email"
-                class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all"
+                class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 autocomplete="email"
               />
               <button
                 type="submit"
                 class="px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Get Early Access
+                Join Beta
               </button>
             </form>
             
             <p id="formMessage" class="text-sm" role="alert" aria-live="polite"></p>
             
             <p class="text-xs text-gray-500">
-              Free to join. No spam. Unsubscribe anytime.
+              Free trial included. Cancel anytime. HIPAA compliant.
             </p>
-          </div>
-
-          <!-- Social Proof -->
-          <div class="flex items-center space-x-6 pt-4">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-gray-900">500+</div>
-              <div class="text-sm text-gray-600">Waitlist signups</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-gray-900">3</div>
-              <div class="text-sm text-gray-600">Device integrations</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-gray-900">HIPAA</div>
-              <div class="text-sm text-gray-600">Compliant</div>
-            </div>
           </div>
         </div>
 
-        <!-- Hero Image -->
+        <!-- Hero Visual -->
         <div class="flex justify-center">
           <div class="relative animate-float">
             <div class="w-80 h-96 bg-white rounded-3xl shadow-2xl p-6 glass-effect">
-              <div class="space-y-4">
+              <div class="space-y-6">
                 <div class="flex items-center justify-between">
-                  <h3 class="font-semibold text-gray-800">Today's Overview</h3>
-                  <span class="text-sm text-green-600">In Range</span>
+                  <h3 class="font-semibold text-gray-800">Dinner Recommendation</h3>
+                  <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Learning</span>
                 </div>
                 
-                <div class="h-32 bg-gradient-to-r from-pink-100 to-orange-100 rounded-xl flex items-center justify-center">
-                  <i class="bi bi-graph-up text-4xl gradient-text"></i>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                    <i class="bi bi-pie-chart text-blue-600 text-xl"></i>
+                    <div>
+                      <div class="font-medium text-gray-800">Pizza (2 slices)</div>
+                      <div class="text-sm text-gray-600">45g carbs detected</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-4 text-white">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-sm opacity-90">Recommended Dose</span>
+                      <i class="bi bi-bullseye"></i>
+                    </div>
+                    <div class="text-3xl font-bold">6.2u</div>
+                    <div class="text-sm opacity-90">Based on your pizza history</div>
+                  </div>
+                  
+                  <div class="text-xs text-gray-600 space-y-1">
+                    <div>• 4u for carbs (pizza factor: 0.89x)</div>
+                    <div>• 2.2u correction (BG: 165 mg/dL)</div>
+                    <div>• Confidence: 89% (ate pizza 12 times)</div>
+                  </div>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 text-center">
-                  <div class="bg-white/50 rounded-lg p-3">
-                    <div class="text-2xl font-bold text-gray-800">120</div>
-                    <div class="text-xs text-gray-600">Avg Glucose</div>
-                  </div>
-                  <div class="bg-white/50 rounded-lg p-3">
-                    <div class="text-2xl font-bold text-gray-800">85%</div>
-                    <div class="text-xs text-gray-600">Time in Range</div>
-                  </div>
-                </div>
-                
-                <div class="space-y-2">
-                  <div class="text-xs font-medium text-gray-700">Connected Devices</div>
-                  <div class="flex space-x-2">
-                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <i class="bi bi-watch text-blue-600 text-xs"></i>
-                    </div>
-                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <i class="bi bi-heart-pulse text-green-600 text-xs"></i>
-                    </div>
-                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                      <i class="bi bi-phone text-purple-600 text-xs"></i>
-                    </div>
-                  </div>
+                <div class="flex justify-between text-center">
+                  <button class="flex-1 bg-gray-100 py-2 rounded-lg text-sm font-medium mr-2">
+                    Adjust
+                  </button>
+                  <button class="flex-1 gradient-bg text-white py-2 rounded-lg text-sm font-medium">
+                    Use Dose
+                  </button>
                 </div>
               </div>
             </div>
@@ -168,58 +180,193 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-6 bg-white/50">
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 px-6 bg-red-50">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h2 class="text-4xl font-bold text-gray-900">The Old Way Is Broken</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <i class="bi bi-calculator text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Static Ratios</h3>
+            <p class="text-gray-600">
+              "1 unit per 15g carbs" assumes pizza = pasta = fruit. Your body knows better.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <i class="bi bi-graph-down text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Guesswork</h3>
+            <p class="text-gray-600">
+              Existing apps show graphs and stats but don't tell you what to do next.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <i class="bi bi-exclamation-triangle text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Frustration</h3>
+            <p class="text-gray-600">
+              Unpredictable results lead to high and low blood sugars, stress, and burnout.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
-          <h2 class="text-4xl font-bold text-gray-900">Simple, Powerful Features</h2>
+          <h2 class="text-4xl font-bold text-gray-900">How Sugarlytics Works</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Connect your devices, visualize your data, and share insights with your healthcare team.
+            Our adaptive system learns from your real-world patterns to provide increasingly accurate, personalized recommendations.
           </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
-              <i class="bi bi-graph-up text-white text-2xl"></i>
+          <div class="text-center space-y-4">
+            <div class="w-20 h-20 secondary-gradient rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
+              1
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">Data Visualization</h3>
+            <h3 class="text-2xl font-semibold text-gray-900">Track & Learn</h3>
             <p class="text-gray-600">
-              Transform your glucose, insulin, and meal data into clear, understandable charts and trends.
+              Connect your CGM, log meals and insulin. We track how your body responds to different foods, times, and situations.
             </p>
           </div>
 
-          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
-              <i class="bi bi-link text-white text-2xl"></i>
+          <div class="text-center space-y-4">
+            <div class="w-20 h-20 gradient-bg rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
+              2
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">Device Integration</h3>
+            <h3 class="text-2xl font-semibold text-gray-900">Pattern Recognition</h3>
             <p class="text-gray-600">
-              Connect with Dexcom, Omnipod, Apple Health, and other popular diabetes management tools.
+              Machine learning identifies your unique patterns: how pizza affects you vs. pasta, morning vs. evening sensitivity.
             </p>
           </div>
 
-          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
-              <i class="bi bi-share text-white text-2xl"></i>
+          <div class="text-center space-y-4">
+            <div class="w-20 h-20 secondary-gradient rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
+              3
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">Easy Sharing</h3>
+            <h3 class="text-2xl font-semibold text-gray-900">Smart Recommendations</h3>
             <p class="text-gray-600">
-              Generate reports to share with your doctor, making appointments more productive and focused.
+              Get personalized dose suggestions that improve over time. The more you use it, the more accurate it becomes.
             </p>
           </div>
         </div>
 
-        <!-- FDA Disclaimer -->
-        <div class="mt-16 p-6 bg-blue-50 rounded-xl border-l-4 border-blue-400">
-          <div class="flex items-start space-x-3">
-            <i class="bi bi-info-circle text-blue-600 text-xl mt-1"></i>
+        <div class="mt-16 bg-blue-50 rounded-2xl p-8">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h4 class="font-semibold text-blue-900 mb-2">Important Information</h4>
-              <p class="text-sm text-blue-800">
-                Sugarlytics is a data visualization and tracking tool. It is not intended to provide medical advice, diagnosis, or treatment recommendations. Always consult with your healthcare provider for medical decisions. This product is not FDA approved for medical use.
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Real Example</h3>
+              <p class="text-gray-600 mb-4">
+                After tracking pizza meals for 2 weeks, Sugarlytics learns that your pizza needs 25% less insulin than your standard carb ratio suggests, and works better with a 15-minute pre-bolus.
+              </p>
+              <p class="text-gray-600">
+                <strong>Result:</strong> More time in range, fewer corrections, less stress.
               </p>
             </div>
+            <div class="bg-white p-6 rounded-xl">
+              <div class="space-y-3">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Standard approach:</span>
+                  <span class="font-medium">6.0u (often too much)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-blue-600 font-medium">Sugarlytics:</span>
+                  <span class="font-bold text-blue-600">4.5u + prebolus</span>
+                </div>
+                <div class="border-t pt-2 flex justify-between">
+                  <span class="text-green-600">Improved TIR:</span>
+                  <span class="font-bold text-green-600">+23%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <div class="md:col-span-1">
+            <div class="w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mx-auto flex items-center justify-center">
+              <i class="bi bi-person text-white text-6xl"></i>
+            </div>
+          </div>
+          <div class="md:col-span-2 space-y-4">
+            <h2 class="text-3xl font-bold text-gray-900">Built by Someone Who Gets It</h2>
+            <p class="text-lg text-gray-600">
+              Hi, I'm <strong>Michael Szwed</strong>, a software engineer living with Type 1 diabetes for over a decade. I've experienced the frustration of static ratios and unpredictable results firsthand.
+            </p>
+            <p class="text-gray-600">
+              After years of manually tracking patterns in spreadsheets, I realized we could do so much better. Sugarlytics combines my technical expertise with real-world diabetes experience to create the tool I wish I had from day one.
+            </p>
+            <div class="flex items-center space-x-4 pt-4">
+              <div class="text-center">
+                <div class="font-bold text-blue-600">10+</div>
+                <div class="text-sm text-gray-600">Years T1D</div>
+              </div>
+              <div class="text-center">
+                <div class="font-bold text-green-600">Software</div>
+                <div class="text-sm text-gray-600">Engineer</div>
+              </div>
+              <div class="text-center">
+                <div class="font-bold text-purple-600">$100K</div>
+                <div class="text-sm text-gray-600">Bootstrapped</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h2 class="text-4xl font-bold">Ready to Stop Guessing?</h2>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
+          Join the beta and be among the first to experience personalized insulin dosing. Free trial, then just $5-10/month.
+        </p>
+        
+        <form id="waitlist-form-2" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+          />
+          <button
+            type="submit"
+            class="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Start Beta
+          </button>
+        </form>
+        
+        <p id="formMessage2" class="text-sm" role="alert" aria-live="polite"></p>
+        
+        <div class="flex justify-center space-x-8 pt-8 text-sm opacity-75">
+          <div class="flex items-center space-x-2">
+            <i class="bi bi-shield-check"></i>
+            <span>HIPAA Compliant</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="bi bi-x-circle"></i>
+            <span>Cancel Anytime</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="bi bi-gift"></i>
+            <span>Free Trial</span>
           </div>
         </div>
       </div>
@@ -230,49 +377,44 @@
       <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-4 gap-8">
           <div class="md:col-span-2 space-y-4">
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-3">
               <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-                <i class="bi bi-graph-up text-white text-xl"></i>
+                <i class="bi bi-bullseye text-white text-xl"></i>
               </div>
               <span class="text-2xl font-bold">Sugarlytics</span>
             </div>
             <p class="text-gray-300 max-w-md">
-              Helping people with diabetes better understand their data through simple, powerful visualization tools.
+              Personalized insulin dosing recommendations that learn from your unique patterns and adapt to your real-world responses.
             </p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                <i class="bi bi-twitter text-xl"></i>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                <i class="bi bi-instagram text-xl"></i>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                <i class="bi bi-linkedin text-xl"></i>
-              </a>
-            </div>
           </div>
           
           <div>
             <h4 class="font-semibold mb-4">Product</h4>
-            <div class="space-y-2 text-gray-300">
-              <div>Features</div>
-              <div>Privacy Policy</div>
-              <div>Terms of Service</div>
+            <div class="space-y-2 text-gray-300 text-sm">
+              <div>How It Works</div>
+              <div>Pricing</div>
+              <div>Beta Access</div>
             </div>
           </div>
           
           <div>
-            <h4 class="font-semibold mb-4">Contact</h4>
+            <h4 class="font-semibold mb-4">Legal</h4>
             <div class="space-y-2 text-gray-300 text-sm">
-              <div>Sugarlytics LLC</div>
-              <div>Richmond, VA 23294</div>
-              <div>hello@sugarlytics.com</div>
+              <div>Privacy Policy</div>
+              <div>Terms of Service</div>
+              <div>Contact</div>
             </div>
           </div>
         </div>
         
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
+        <div class="border-t border-gray-800 mt-8 pt-8">
+          <div class="text-center text-gray-400 text-sm space-y-2">
+            <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
+            <p class="text-xs">
+              Sugarlytics is not a medical device and is not intended to replace professional medical advice, diagnosis, or treatment. 
+              Always consult with your healthcare provider before making changes to your diabetes management routine.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
@@ -280,53 +422,59 @@
     <script>
       // Waitlist form submission
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzv5lVlq5Uot1LLWp3b2_5x3XsJAjxv3b9WOz1GaVvyTFbjt_N2q6KebcNfmzMER18W_g/exec';
-      const form = document.getElementById('waitlist-form');
-      const formMessage = document.getElementById('formMessage');
+      
+      function handleFormSubmit(formId, messageId) {
+        const form = document.getElementById(formId);
+        const formMessage = document.getElementById(messageId);
+        
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          formMessage.textContent = '';
+          const email = form.email.value.trim();
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        formMessage.textContent = '';
-        const email = form.email.value.trim();
-
-        if (!email) {
-          formMessage.style.color = 'red';
-          formMessage.textContent = 'Please enter your email address.';
-          return;
-        }
-
-        // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Joining...';
-        submitBtn.disabled = true;
-
-        fetch(scriptURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `email=${encodeURIComponent(email)}`,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.result === 'success') {
-              formMessage.style.color = 'green';
-              formMessage.textContent = '🎉 Welcome to the waitlist! Check your email for confirmation.';
-              form.reset();
-            } else {
-              formMessage.style.color = 'red';
-              formMessage.textContent = 'Something went wrong. Please try again.';
-            }
-          })
-          .catch(() => {
+          if (!email) {
             formMessage.style.color = 'red';
-            formMessage.textContent = 'Network error. Please check your connection and try again.';
+            formMessage.textContent = 'Please enter your email address.';
+            return;
+          }
+
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Joining...';
+          submitBtn.disabled = true;
+
+          fetch(scriptURL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `email=${encodeURIComponent(email)}`,
           })
-          .finally(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-          });
-      });
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.result === 'success') {
+                formMessage.style.color = 'green';
+                formMessage.textContent = '🎉 You\'re in! Check your email for beta updates.';
+                form.reset();
+              } else {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Something went wrong. Please try again.';
+              }
+            })
+            .catch(() => {
+              formMessage.style.color = 'red';
+              formMessage.textContent = 'Network error. Please check your connection and try again.';
+            })
+            .finally(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+            });
+        });
+      }
+
+      // Initialize both forms
+      handleFormSubmit('waitlist-form', 'formMessage');
+      handleFormSubmit('waitlist-form-2', 'formMessage2');
 
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
