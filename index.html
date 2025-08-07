@@ -1,295 +1,370 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sugarlytics</title>
-        <meta name="description" content="Transform your diabetes management with powerful analytics. Connect data from Dexcom, Omnipod, Apple Health, and more for actionable insights." />
-        <link
-            rel="shortcut icon"
-            href="./assets/logo.png"
-            type="image/x-icon"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sugarlytics — Personalized Diabetes Data Insights</title>
+    <meta
+      name="description"
+      content="Transform your diabetes management with data-driven insights. Connect data from Dexcom, Omnipod, Apple Health, and more for personalized support."
+    />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Sugarlytics" />
+    <meta
+      property="og:description"
+      content="Transform your diabetes management with data-driven insights from your health data."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.sugarlytics.com/assets/og-image.png" />
+
+    <link rel="stylesheet" href="./css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-white">
+    <header
+      class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
+    >
+      <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="/">
+        <img
+          src="./assets/logo.png"
+          alt="Sugarlytics logo"
+          class="tw-object tw-h-full tw-w-full"
         />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="Sugarlytics" />
-        <meta property="og:description" content="Transform your diabetes management with powerful analytics and actionable insights from your health data." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="www.sugarlytics.com" />
-
-        <link rel="stylesheet" href="./css/tailwind-build.css" />
-        <link rel="stylesheet" href="css/index.css" />
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
-            integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-    </head>
-    <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff]">
-        <header
-            class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
+      </a>
+      <nav
+        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
+        id="collapsed-header-items"
+      >
+        <div
+          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
         >
-            <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="">
-                <img
-                    src="./assets/logo.png"
-                    alt="Sugarlytics logo"
-                    class="tw-object tw-h-full tw-w-full"
-                />
-            </a>
-            <div
-                class="collapsible-header animated-collapse max-lg:tw-shadow-md"
-                id="collapsed-header-items"
-            >
-                <div
-                    class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
-                >
-                    <a class="header-links" href="#about"> About </a>
-                    <a class="header-links" href="#features"> Features </a>
-                    <a class="header-links" href="#contact"> Contact </a>
-                </div>
-            </div>
-            <button
-                class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
-                onclick="toggleHeader()"
-                aria-label="menu"
-                id="collapse-btn"
-            ></button>
-        </header>
-
-        <section
-            class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
-        >
-            <div
-                class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
-            >
-                <div class="tw-flex tw-flex-col tw-place-content-center">
-                    <div
-                        class="tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
-                    >
-                        <span> Transform your </span>
-                        <br />
-                        <span style="background: linear-gradient(135deg, #f2709c, #ff9472); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> diabetes data </span>
-                    </div>
-                    <div
-                        class="tw-mt-10 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
-                    >
-                        Unlock powerful insights from your blood sugar, insulin, carbs, exercise, and medication data. Connect seamlessly with Dexcom, Omnipod, Apple Health, and Google Health for comprehensive diabetes management.
-                    </div>
-
-                    <!-- Waitlist Section -->
-                    <div
-                        class="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-3"
-                    >
-                        <h3 style="color: #f2709c;" class="tw-text-2xl tw-font-semibold">
-                            Join the waitlist
-                        </h3>
-                        <p class="tw-text-lg tw-text-gray-700">
-                            Be the first to experience the future of diabetes management
-                        </p>
-                        <div
-                            class="tw-flex tw-h-[60px] tw-place-items-center tw-gap-2 tw-overflow-hidden tw-p-2"
-                        >
-                            <input
-                                type="email"
-                                class="input tw-h-full tw-w-full tw-p-2 tw-outline-none tw-flex-1"
-                                placeholder="Enter your email"
-                                style="border-color: #ff9472;"
-                            />
-                            <a
-                                class="btn tw-transition-colors tw-duration-[0.3s] tw-whitespace-nowrap"
-                                style="background: linear-gradient(135deg, #f2709c, #ff9472); color: white;"
-                                href=""
-                            >
-                                Join Waitlist
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
-                >
-                    <div
-                        class="tw-flex tw-max-h-[580px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
-                    >
-                        <img
-                            src="./assets/images/home/iphone.png"
-                            alt="Sugarlytics diabetes analytics app"
-                            class="tw-h-full tw-w-full tw-object-contain"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section
-            class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-            id="features"
-        >
-            <div
-                class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5"
-            >
-                <div
-                    class="tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
-                >
-                    <h3 style="color: #f2709c;" class="tw-text-xl">
-                        Powerful features for better diabetes management
-                    </h3>
-                    <h2 class="tw-text-4xl tw-font-semibold">Smart Analytics</h2>
-                </div>
-                <div
-                    class="tw-mt-6 tw-flex tw-max-w-[80%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
-                >
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i
-                            class="bi bi-graph-up-arrow tw-text-5xl"
-                            style="color: #f2709c;"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Blood Sugar Trends</h3>
-                        <div class="tw-text-[#595959]">
-                            Advanced analytics to identify patterns in your glucose levels, helping you understand what affects your blood sugar and when.
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i
-                            class="bi bi-heart-pulse-fill tw-text-5xl"
-                            style="color: #ff9472;"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Device Integration</h3>
-                        <div class="tw-text-[#595959]">
-                            Seamlessly connect with Dexcom CGMs, Omnipod insulin pumps, Apple Health, Google Health, and other popular diabetes management devices.
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i
-                            class="bi bi-clipboard-data-fill tw-text-5xl"
-                            style="color: #f2709c;"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Comprehensive Tracking</h3>
-                        <div class="tw-text-[#595959]">
-                            Monitor insulin doses, carbohydrate intake, exercise, step count, medication adherence, and stress levels all in one place.
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i
-                            class="bi bi-lightbulb-fill tw-text-5xl"
-                            style="color: #ff9472;"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Actionable Insights</h3>
-                        <div class="tw-text-[#595959]">
-                            Get personalized recommendations based on your data patterns to optimize your diabetes management and improve outcomes.
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i
-                            class="bi bi-shield-check tw-text-5xl"
-                            style="color: #f2709c;"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Secure & Private</h3>
-                        <div class="tw-text-[#595959]">
-                            Your health data is encrypted and protected with enterprise-grade security. HIPAA compliant with full control over your information.
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <i class="bi bi-share tw-text-5xl" style="color: #ff9472;"></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Provider Sharing</h3>
-                        <div class="tw-text-[#595959]">
-                            Easily share comprehensive reports with your healthcare team to improve communication and collaborative care.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer
-            class="tw-mt-auto tw-flex tw-w-full tw-place-content-center tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-        >
-            <div
-                class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
-            >
-                <img
-                    src="./assets/logo.png"
-                    alt="Sugarlytics logo"
-                    class="tw-max-w-[120px]"
-                />
-                <div class="tw-text-center">
-                    <strong>Sugarlytics, LLC.</strong><br />
-                    8401 Mayland Dr # 5695<br />
-                    Richmond, VA 23294<br />
-                    United States
-                </div>
-                <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
-                <div class="tw-flex tw-gap-4 tw-text-2xl">
-                    <a href="" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a
-                        href="https://twitter.com/@sugarlytics"
-                        aria-label="Twitter"
-                    >
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a
-                        href="https://www.instagram.com/sugarlytics/"
-                        class="tw-h-[40px] tw-w-[40px]"
-                        aria-label="Instagram"
-                    >
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/company/sugarlytics/"
-                        aria-label="LinkedIn"
-                    >
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a
-                        href="https://www.tiktok.com/@sugarlytics"
-                        aria-label="TikTok"
-                    >
-                        <i class="bi bi-tiktok"></i>
-                    </a>
-                    <a
-                        href="https://www.reddit.com/r/sugarlytics"
-                        aria-label="Reddit"
-                    >
-                        <i class="bi bi-reddit"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
-
-        <div class="tw-bg-gray-100 tw-py-4 tw-text-center tw-text-sm tw-text-gray-600">
-            <p>&copy; 2025 Sugarlytics, LLC. All rights reserved.</p>
+          <a class="header-links" href="#about">About</a>
+          <a class="header-links" href="#features">Features</a>
+          <a class="header-links" href="#contact">Contact</a>
         </div>
-    </body>
+      </nav>
+      <button
+        class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
+        onclick="toggleHeader()"
+        aria-label="Toggle menu"
+        id="collapse-btn"
+      ></button>
+    </header>
+
+    <main>
+      <section
+        class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
+      >
+        <div
+          class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
+        >
+          <div class="tw-flex tw-flex-col tw-place-content-center tw-max-w-[600px]">
+            <h1
+              class="tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
+            >
+              Transform your <br />
+              <span
+                style="background: linear-gradient(135deg, #f2709c, #ff9472);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;"
+                >diabetes data</span
+              >
+            </h1>
+            <p class="tw-mt-8 tw-text-lg tw-text-justify tw-text-gray-800">
+              Access meaningful insights from your blood sugar, insulin, carbohydrate,
+              exercise, and medication data. Connect easily with Dexcom, Omnipod,
+              Apple Health, and Google Health to better understand your unique
+              diabetes patterns.
+            </p>
+
+            <!-- Waitlist Section -->
+            <section class="tw-mt-10" aria-labelledby="waitlist-title">
+              <h2
+                id="waitlist-title"
+                class="tw-text-3xl tw-font-semibold"
+                style="color: #f2709c;"
+              >
+                Join the Sugarlytics waitlist
+              </h2>
+              <p class="tw-mt-2 tw-text-lg tw-text-gray-700">
+                Be among the first to access personalized data insights designed to
+                support your insulin management decisions.
+              </p>
+
+              <form
+                id="waitlist-form"
+                class="tw-mt-5 tw-flex tw-gap-2"
+                onsubmit="handleWaitlistSubmit(event)"
+                novalidate
+              >
+                <label for="email" class="tw-sr-only">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="Enter your email"
+                  class="input tw-flex-1 tw-px-4 tw-py-3 tw-border tw-border-[#ff9472] tw-rounded-md tw-outline-none"
+                  aria-describedby="emailHelp"
+                />
+                <button
+                  type="submit"
+                  class="btn tw-px-6 tw-py-3 tw-rounded-md tw-font-semibold tw-text-white"
+                  style="background: linear-gradient(135deg, #f2709c, #ff9472);"
+                >
+                  Join Waitlist
+                </button>
+              </form>
+              <p id="emailHelp" class="tw-mt-2 tw-text-sm tw-text-gray-500">
+                We respect your privacy and will never share your email.
+              </p>
+              <p
+                id="formMessage"
+                class="tw-mt-2 tw-text-sm tw-text-red-600"
+                role="alert"
+                aria-live="polite"
+                style="display:none;"
+              ></p>
+            </section>
+          </div>
+
+          <div
+            class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
+          >
+            <div
+              class="tw-flex tw-max-h-[580px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
+            >
+              <img
+                src="./assets/images/home/iphone.png"
+                alt="Sugarlytics diabetes analytics app on smartphone"
+                class="tw-h-full tw-w-full tw-object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+        id="features"
+      >
+        <div class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5">
+          <header class="tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center">
+            <h3 style="color: #f2709c;" class="tw-text-xl">
+              Features designed to enhance your understanding of diabetes data
+            </h3>
+            <h2 class="tw-text-4xl tw-font-semibold">Smart Analytics</h2>
+          </header>
+          <div
+            class="tw-mt-6 tw-flex tw-max-w-[80%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
+          >
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Blood Sugar Trends feature"
+            >
+              <i
+                class="bi bi-graph-up-arrow tw-text-5xl"
+                style="color: #f2709c;"
+              ></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Blood Sugar Trends</h3>
+              <p class="tw-text-[#595959]">
+                View data patterns in your glucose levels to better understand
+                what influences your blood sugar throughout the day.
+              </p>
+            </article>
+
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Device Integration feature"
+            >
+              <i
+                class="bi bi-heart-pulse-fill tw-text-5xl"
+                style="color: #ff9472;"
+              ></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Device Integration</h3>
+              <p class="tw-text-[#595959]">
+                Connect effortlessly with Dexcom CGMs, Omnipod insulin pumps,
+                Apple Health, Google Health, and other popular diabetes data
+                sources.
+              </p>
+            </article>
+
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Comprehensive Tracking feature"
+            >
+              <i
+                class="bi bi-clipboard-data-fill tw-text-5xl"
+                style="color: #f2709c;"
+              ></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Comprehensive Tracking</h3>
+              <p class="tw-text-[#595959]">
+                Track insulin doses, carbohydrate intake, exercise, steps,
+                medication adherence, and stress levels — all in one place.
+              </p>
+            </article>
+
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Insightful Data feature"
+            >
+              <i
+                class="bi bi-lightbulb-fill tw-text-5xl"
+                style="color: #ff9472;"
+              ></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Insightful Data</h3>
+              <p class="tw-text-[#595959]">
+                Access personalized data patterns designed to inform your
+                insulin management decisions and increase understanding of your
+                body's responses.
+              </p>
+            </article>
+
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Secure & Private feature"
+            >
+              <i
+                class="bi bi-shield-check tw-text-5xl"
+                style="color: #f2709c;"
+              ></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Secure &amp; Private</h3>
+              <p class="tw-text-[#595959]">
+                Your health data is encrypted and protected with
+                enterprise-grade security. You maintain full control over your
+                information.
+              </p>
+            </article>
+
+            <article
+              class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
+              aria-label="Provider Sharing feature"
+            >
+              <i class="bi bi-share tw-text-5xl" style="color: #ff9472;"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Provider Sharing</h3>
+              <p class="tw-text-[#595959]">
+                Share your comprehensive data reports with your healthcare team
+                to improve communication and collaborative care.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="tw-mt-auto tw-flex tw-w-full tw-place-content-center tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
+    >
+      <div
+        class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
+      >
+        <img
+          src="./assets/logo.png"
+          alt="Sugarlytics logo"
+          class="tw-max-w-[120px]"
+        />
+        <address class="tw-text-center not-italic">
+          <strong>Sugarlytics LLC</strong><br />
+          8401 Mayland Dr #5695<br />
+          Richmond, VA 23294<br />
+          United States
+        </address>
+        <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
+        <nav class="tw-flex tw-gap-4 tw-text-2xl" aria-label="Social media links">
+          <a href="#" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a
+            href="https://twitter.com/@sugarlytics"
+            aria-label="Twitter"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/sugarlytics/"
+            aria-label="Instagram"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="tw-h-[40px] tw-w-[40px]"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/sugarlytics/"
+            aria-label="LinkedIn"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@sugarlytics"
+            aria-label="TikTok"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i class="bi bi-tiktok"></i>
+          </a>
+        </nav>
+      </div>
+    </footer>
+
+    <div
+      class="tw-bg-gray-100 tw-py-4 tw-text-center tw-text-sm tw-text-gray-600"
+    >
+      <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
+    </div>
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
-        integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+      integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
-        integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+      integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
 
     <script src="./index.js"></script>
+    <script>
+      // Example waitlist form handler placeholder
+      function handleWaitlistSubmit(event) {
+        event.preventDefault();
+        const emailInput = document.getElementById("email");
+        const message = document.getElementById("formMessage");
+
+        if (!emailInput.checkValidity()) {
+          message.style.color = "red";
+          message.textContent = "Please enter a valid email address.";
+          message.style.display = "block";
+          return;
+        }
+
+        message.style.color = "green";
+        message.textContent =
+          "Thank you for joining the Sugarlytics waitlist!";
+        message.style.display = "block";
+
+        // Here you would add your code to submit the email to your backend or service
+
+        emailInput.value = "";
+      }
+    </script>
+  </body>
 </html>
