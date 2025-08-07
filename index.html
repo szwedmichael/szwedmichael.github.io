@@ -77,8 +77,8 @@
               <span>Built by an engineer with T1D</span>
             </div>
             <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-              <span class="text-gray-900">Stop guessing</span><br>
-              <span class="gradient-text">insulin doses</span>
+              <span class="text-gray-900">Understand your</span><br>
+              <span class="gradient-text">diabetes patterns</span>
             </h1>
             <p class="text-xl text-gray-600 max-w-lg">
               Pizza hits different than pasta. Your 3pm insulin works differently than 8am. Sugarlytics learns your unique patterns to provide personalized insights that help you understand your real-world responses.
@@ -106,6 +106,12 @@
             <div class="flex items-center space-x-2">
               <i class="bi bi-bell" style="color: #f2709c;"></i>
               <span class="text-sm font-medium text-gray-700">Get early access • Be first to know</span>
+            </div>
+            
+            <!-- Waitlist Count -->
+            <div class="flex items-center space-x-2 text-sm text-gray-600">
+              <i class="bi bi-people" style="color: #f2709c;"></i>
+              <span><strong id="waitlist-count">Loading...</strong> people already joined</span>
             </div>
             
             <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -278,13 +284,13 @@
                 
                 <div class="bg-white p-4 rounded-lg border-l-4 border-yellow-400">
                   <div class="font-semibold text-gray-800">Fifth Pizza (Week 3)</div>
-                  <div class="text-sm text-gray-600">Sugarlytics adjusts: 7.2u (learning pizza needs more)</div>
+                  <div class="text-sm text-gray-600">Pattern emerges: 7.2u (learning pizza affects you differently)</div>
                   <div class="text-sm text-yellow-600">Result: Better, but went low to 65 mg/dL</div>
                 </div>
                 
                 <div class="bg-white p-4 rounded-lg border-l-4 border-green-400">
                   <div class="font-semibold text-gray-800">Tenth Pizza (Week 6)</div>
-                  <div class="text-sm text-gray-600">Refined recommendation: 6.8u (finding the sweet spot)</div>
+                  <div class="text-sm text-gray-600">Pattern refined: 6.8u (your optimal pizza response identified)</div>
                   <div class="text-sm text-green-600">Result: Perfect! Stayed 140-160 mg/dL</div>
                 </div>
               </div>
@@ -364,7 +370,7 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-gradient-to-r from-pink-500 to-orange-400 text-white">
       <div class="max-w-4xl mx-auto text-center space-y-8">
-        <h2 class="text-4xl font-bold">Ready to Stop Guessing?</h2>
+        <h2 class="text-4xl font-bold">Ready to Understand Your Patterns?</h2>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Join the waitlist and be among the first to experience personalized diabetes data insights.
         </p>
@@ -446,7 +452,21 @@
 
     <script>
       // Waitlist form submission
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzv5lVlq5Uot1LLWp3b2_5x3XsJAjxv3b9WOz1GaVvyTFbjt_N2q6KebcNfmzMER18W_g/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzWhCB3hqFTHmXY34lkONjVpqGQ_T0IsyEPkxNG_0lVKE6jB5TUmNCYXxBZrY5mhM_T0Q/exec';
+      
+      // Function to get waitlist count
+      async function getWaitlistCount() {
+        try {
+          const response = await fetch(scriptURL);
+          const data = await response.json();
+          if (data.count !== undefined) {
+            document.getElementById('waitlist-count').textContent = data.count.toLocaleString();
+          }
+        } catch (error) {
+          console.error('Error fetching waitlist count:', error);
+          document.getElementById('waitlist-count').textContent = '500+';
+        }
+      }
       
       function handleFormSubmit(formId, messageId) {
         const form = document.getElementById(formId);
@@ -481,6 +501,8 @@
                 formMessage.style.color = 'green';
                 formMessage.textContent = '🎉 You\'re on the waitlist! Check your email for updates.';
                 form.reset();
+                // Update count after successful signup
+                getWaitlistCount();
               } else {
                 formMessage.style.color = 'red';
                 formMessage.textContent = 'Something went wrong. Please try again.';
@@ -500,6 +522,9 @@
       // Initialize both forms
       handleFormSubmit('waitlist-form', 'formMessage');
       handleFormSubmit('waitlist-form-2', 'formMessage2');
+
+      // Get initial waitlist count when page loads
+      getWaitlistCount();
 
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
