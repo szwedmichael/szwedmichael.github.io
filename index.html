@@ -3,311 +3,282 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sugarlytics</title>
+    <title>Sugarlytics - Diabetes Data Analytics</title>
     <meta
       name="description"
-      content="Transform your diabetes management with powerful analytics. Connect data from Dexcom, Omnipod, Apple Health, and more for actionable insights."
+      content="Visualize and understand your diabetes data better. Connect devices, track patterns, share with your care team."
     />
     <link
       rel="shortcut icon"
       href="./assets/logo.png"
       type="image/x-icon"
     />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Sugarlytics" />
-    <meta
-      property="og:description"
-      content="Transform your diabetes management with powerful analytics and actionable insights from your health data."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="www.sugarlytics.com" />
-
-    <link rel="stylesheet" href="./css/tailwind-build.css" />
-    <link rel="stylesheet" href="css/index.css" />
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
-      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
+    <style>
+      .gradient-text {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
   </head>
-  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff]">
-    <header
-      class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
-    >
-      <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="">
-        <img
-          src="./assets/logo.png"
-          alt="Sugarlytics logo"
-          class="tw-object tw-h-full tw-w-full"
-        />
-      </a>
-      <div
-        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
-        id="collapsed-header-items"
-      >
-        <div
-          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
-        >
-          <a class="header-links" href="#about"> About </a>
-          <a class="header-links" href="#features"> Features </a>
-          <a class="header-links" href="#contact"> Contact </a>
+  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <!-- Header -->
+    <header class="absolute top-0 z-20 w-full px-6 py-4">
+      <nav class="flex items-center justify-between max-w-7xl mx-auto">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+            <i class="bi bi-graph-up text-white text-xl"></i>
+          </div>
+          <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
         </div>
-      </div>
-      <button
-        class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
-        onclick="toggleHeader()"
-        aria-label="menu"
-        id="collapse-btn"
-      ></button>
+        <div class="hidden md:flex space-x-8">
+          <a href="#features" class="text-gray-700 hover:text-pink-500 transition-colors">Features</a>
+          <a href="#about" class="text-gray-700 hover:text-pink-500 transition-colors">About</a>
+        </div>
+      </nav>
     </header>
 
-    <section
-      class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
-    >
-      <div
-        class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
-      >
-        <div class="tw-flex tw-flex-col tw-place-content-center">
-          <div
-            class="tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
-          >
-            <span> Transform your </span>
-            <br />
-            <span
-              style="
-                background: linear-gradient(135deg, #f2709c, #ff9472);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-              "
-              > diabetes data </span
-            >
-          </div>
-          <div
-            class="tw-mt-10 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
-          >
-            Unlock powerful insights from your blood sugar, insulin, carbs,
-            exercise, and medication data. Connect seamlessly with Dexcom,
-            Omnipod, Apple Health, and Google Health for comprehensive diabetes
-            support.
-          </div>
-
-          <!-- Waitlist Section -->
-          <div class="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-3">
-            <h3 style="color: #f2709c;" class="tw-text-2xl tw-font-semibold">
-              Join the waitlist
-            </h3>
-            <p class="tw-text-lg tw-text-gray-700">
-              Be among the first to experience data-driven support for managing
-              your diabetes.
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+              <span class="text-gray-900">Understand your</span><br>
+              <span class="gradient-text">diabetes data</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-lg">
+              Visualize patterns, connect your devices, and share insights with your healthcare team. No medical advice—just better data understanding.
             </p>
+          </div>
 
-            <form id="waitlist-form" class="tw-mt-5 tw-flex tw-gap-2" novalidate>
-              <label for="email" class="tw-sr-only">Email address</label>
+          <!-- Waitlist Form -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-2">
+              <i class="bi bi-clock text-pink-500"></i>
+              <span class="text-sm font-medium text-gray-700">Coming Soon • Join 500+ people on the waitlist</span>
+            </div>
+            
+            <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md">
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
                 placeholder="Enter your email"
-                class="input tw-flex-1 tw-px-4 tw-py-3 tw-border tw-border-[#ff9472] tw-rounded-md tw-outline-none"
+                class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all"
                 autocomplete="email"
               />
               <button
                 type="submit"
-                class="btn tw-px-6 tw-py-3 tw-rounded-md tw-font-semibold tw-text-white"
-                style="background: linear-gradient(135deg, #f2709c, #ff9472);"
+                class="px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Join Waitlist
+                Get Early Access
               </button>
             </form>
-            <p
-              id="formMessage"
-              class="tw-mt-2 tw-text-sm"
-              role="alert"
-              aria-live="polite"
-            ></p>
+            
+            <p id="formMessage" class="text-sm" role="alert" aria-live="polite"></p>
+            
+            <p class="text-xs text-gray-500">
+              Free to join. No spam. Unsubscribe anytime.
+            </p>
+          </div>
+
+          <!-- Social Proof -->
+          <div class="flex items-center space-x-6 pt-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-gray-900">500+</div>
+              <div class="text-sm text-gray-600">Waitlist signups</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-gray-900">3</div>
+              <div class="text-sm text-gray-600">Device integrations</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-gray-900">HIPAA</div>
+              <div class="text-sm text-gray-600">Compliant</div>
+            </div>
           </div>
         </div>
 
-        <div
-          class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
-        >
-          <div
-            class="tw-flex tw-max-h-[580px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
-          >
-            <img
-              src="./assets/images/home/iphone.png"
-              alt="Sugarlytics diabetes analytics app"
-              class="tw-h-full tw-w-full tw-object-contain"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-      id="features"
-    >
-      <div class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5">
-        <div class="tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center">
-          <h3 style="color: #f2709c;" class="tw-text-xl">
-            Powerful features for better diabetes management
-          </h3>
-          <h2 class="tw-text-4xl tw-font-semibold">Smart Analytics</h2>
-        </div>
-        <div
-          class="tw-mt-6 tw-flex tw-max-w-[80%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
-        >
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i
-              class="bi bi-graph-up-arrow tw-text-5xl"
-              style="color: #f2709c;"
-            ></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Blood Sugar Trends</h3>
-            <div class="tw-text-[#595959]">
-              Advanced analytics to identify patterns in your glucose levels,
-              helping you understand what affects your blood sugar and when.
-            </div>
-          </div>
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i
-              class="bi bi-heart-pulse-fill tw-text-5xl"
-              style="color: #ff9472;"
-            ></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Device Integration</h3>
-            <div class="tw-text-[#595959]">
-              Seamlessly connect with Dexcom CGMs, Omnipod insulin pumps, Apple
-              Health, Google Health, and other popular diabetes management
-              devices.
-            </div>
-          </div>
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i
-              class="bi bi-clipboard-data-fill tw-text-5xl"
-              style="color: #f2709c;"
-            ></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Comprehensive Tracking</h3>
-            <div class="tw-text-[#595959]">
-              Monitor insulin doses, carbohydrate intake, exercise, step count,
-              medication adherence, and stress levels all in one place.
-            </div>
-          </div>
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i
-              class="bi bi-lightbulb-fill tw-text-5xl"
-              style="color: #ff9472;"
-            ></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Actionable Insights</h3>
-            <div class="tw-text-[#595959]">
-              Get personalized data-driven support based on your health data
-              patterns to better understand your diabetes.
-            </div>
-          </div>
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i class="bi bi-shield-check tw-text-5xl" style="color: #f2709c;"></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Secure &amp; Private</h3>
-            <div class="tw-text-[#595959]">
-              Your health data is encrypted and protected with enterprise-grade
-              security. HIPAA compliant with full control over your information.
-            </div>
-          </div>
-          <div
-            class="tw-flex tw-h-[280px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-          >
-            <i class="bi bi-share tw-text-5xl" style="color: #ff9472;"></i>
-            <h3 class="tw-text-2xl tw-font-semibold">Provider Sharing</h3>
-            <div class="tw-text-[#595959]">
-              Easily share comprehensive reports with your healthcare team to
-              improve communication and collaborative care.
+        <!-- Hero Image -->
+        <div class="flex justify-center">
+          <div class="relative animate-float">
+            <div class="w-80 h-96 bg-white rounded-3xl shadow-2xl p-6 glass-effect">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-gray-800">Today's Overview</h3>
+                  <span class="text-sm text-green-600">In Range</span>
+                </div>
+                
+                <div class="h-32 bg-gradient-to-r from-pink-100 to-orange-100 rounded-xl flex items-center justify-center">
+                  <i class="bi bi-graph-up text-4xl gradient-text"></i>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 text-center">
+                  <div class="bg-white/50 rounded-lg p-3">
+                    <div class="text-2xl font-bold text-gray-800">120</div>
+                    <div class="text-xs text-gray-600">Avg Glucose</div>
+                  </div>
+                  <div class="bg-white/50 rounded-lg p-3">
+                    <div class="text-2xl font-bold text-gray-800">85%</div>
+                    <div class="text-xs text-gray-600">Time in Range</div>
+                  </div>
+                </div>
+                
+                <div class="space-y-2">
+                  <div class="text-xs font-medium text-gray-700">Connected Devices</div>
+                  <div class="flex space-x-2">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                      <i class="bi bi-watch text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                      <i class="bi bi-heart-pulse text-green-600 text-xs"></i>
+                    </div>
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                      <i class="bi bi-phone text-purple-600 text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer
-      class="tw-mt-auto tw-flex tw-w-full tw-place-content-center tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-    >
-      <div
-        class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
-      >
-        <img
-          src="./assets/logo.png"
-          alt="Sugarlytics logo"
-          class="tw-max-w-[120px]"
-        />
-        <div class="tw-text-center">
-          <strong>Sugarlytics LLC</strong><br />
-          8401 Mayland Dr # 5695<br />
-          Richmond, VA 23294<br />
-          United States
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-white/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center space-y-4 mb-16">
+          <h2 class="text-4xl font-bold text-gray-900">Simple, Powerful Features</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Connect your devices, visualize your data, and share insights with your healthcare team.
+          </p>
         </div>
-        <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
-        <div class="tw-flex tw-gap-4 tw-text-2xl">
-          <a href="" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="https://twitter.com/@sugarlytics" aria-label="Twitter">
-            <i class="bi bi-twitter"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/sugarlytics/"
-            class="tw-h-[40px] tw-w-[40px]"
-            aria-label="Instagram"
-          >
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/sugarlytics/"
-            aria-label="LinkedIn"
-          >
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="https://www.tiktok.com/@sugarlytics" aria-label="TikTok">
-            <i class="bi bi-tiktok"></i>
-          </a>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
+              <i class="bi bi-graph-up text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Data Visualization</h3>
+            <p class="text-gray-600">
+              Transform your glucose, insulin, and meal data into clear, understandable charts and trends.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
+              <i class="bi bi-link text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Device Integration</h3>
+            <p class="text-gray-600">
+              Connect with Dexcom, Omnipod, Apple Health, and other popular diabetes management tools.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 gradient-bg rounded-full mx-auto flex items-center justify-center">
+              <i class="bi bi-share text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Easy Sharing</h3>
+            <p class="text-gray-600">
+              Generate reports to share with your doctor, making appointments more productive and focused.
+            </p>
+          </div>
+        </div>
+
+        <!-- FDA Disclaimer -->
+        <div class="mt-16 p-6 bg-blue-50 rounded-xl border-l-4 border-blue-400">
+          <div class="flex items-start space-x-3">
+            <i class="bi bi-info-circle text-blue-600 text-xl mt-1"></i>
+            <div>
+              <h4 class="font-semibold text-blue-900 mb-2">Important Information</h4>
+              <p class="text-sm text-blue-800">
+                Sugarlytics is a data visualization and tracking tool. It is not intended to provide medical advice, diagnosis, or treatment recommendations. Always consult with your healthcare provider for medical decisions. This product is not FDA approved for medical use.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2 space-y-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+                <i class="bi bi-graph-up text-white text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold">Sugarlytics</span>
+            </div>
+            <p class="text-gray-300 max-w-md">
+              Helping people with diabetes better understand their data through simple, powerful visualization tools.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                <i class="bi bi-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                <i class="bi bi-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                <i class="bi bi-linkedin text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold mb-4">Product</h4>
+            <div class="space-y-2 text-gray-300">
+              <div>Features</div>
+              <div>Privacy Policy</div>
+              <div>Terms of Service</div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <div class="space-y-2 text-gray-300 text-sm">
+              <div>Sugarlytics LLC</div>
+              <div>Richmond, VA 23294</div>
+              <div>hello@sugarlytics.com</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+          <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
-    <div
-      class="tw-bg-gray-100 tw-py-4 tw-text-center tw-text-sm tw-text-gray-600"
-    >
-      <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
-    </div>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
-      integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
-      integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script src="./index.js"></script>
-
     <script>
+      // Waitlist form submission
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzv5lVlq5Uot1LLWp3b2_5x3XsJAjxv3b9WOz1GaVvyTFbjt_N2q6KebcNfmzMER18W_g/exec';
       const form = document.getElementById('waitlist-form');
       const formMessage = document.getElementById('formMessage');
@@ -319,9 +290,15 @@
 
         if (!email) {
           formMessage.style.color = 'red';
-          formMessage.textContent = 'Please enter your email.';
+          formMessage.textContent = 'Please enter your email address.';
           return;
         }
+
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Joining...';
+        submitBtn.disabled = true;
 
         fetch(scriptURL, {
           method: 'POST',
@@ -334,20 +311,35 @@
           .then((data) => {
             if (data.result === 'success') {
               formMessage.style.color = 'green';
-              formMessage.textContent =
-                'Thank you for joining the Sugarlytics waitlist!';
+              formMessage.textContent = '🎉 Welcome to the waitlist! Check your email for confirmation.';
               form.reset();
             } else {
               formMessage.style.color = 'red';
-              formMessage.textContent =
-                'Submission failed: ' + (data.error || 'Unknown error');
+              formMessage.textContent = 'Something went wrong. Please try again.';
             }
           })
           .catch(() => {
             formMessage.style.color = 'red';
-            formMessage.textContent =
-              'There was an error submitting your request.';
+            formMessage.textContent = 'Network error. Please check your connection and try again.';
+          })
+          .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
           });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
       });
     </script>
   </body>
