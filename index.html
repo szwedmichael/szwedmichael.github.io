@@ -20,16 +20,16 @@
     />
     <style>
       .gradient-text {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        background: linear-gradient(135deg, #f2709c, #ff9472);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
       .gradient-bg {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        background: linear-gradient(135deg, #f2709c, #ff9472);
       }
       .secondary-gradient {
-        background: linear-gradient(135deg, #10b981, #059669);
+        background: linear-gradient(135deg, #f2709c, #ff9472);
       }
       .glass-effect {
         background: rgba(255, 255, 255, 0.1);
@@ -45,20 +45,24 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
     <!-- Header -->
     <header class="absolute top-0 z-20 w-full px-6 py-4">
       <nav class="flex items-center justify-between max-w-7xl mx-auto">
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-            <i class="bi bi-bullseye text-white text-xl"></i>
-          </div>
+          <a class="w-10 h-10" href="">
+            <img
+              src="./assets/logo.png"
+              alt="Sugarlytics logo"
+              class="w-full h-full object-contain"
+            />
+          </a>
           <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
         </div>
         <div class="hidden md:flex space-x-8">
-          <a href="#problem" class="text-gray-700 hover:text-blue-600 transition-colors">Why Now</a>
-          <a href="#solution" class="text-gray-700 hover:text-blue-600 transition-colors">How It Works</a>
-          <a href="#founder" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+          <a href="#problem" class="text-gray-700 hover:text-pink-600 transition-colors">Why Now</a>
+          <a href="#solution" class="text-gray-700 hover:text-pink-600 transition-colors">How It Works</a>
+          <a href="#founder" class="text-gray-700 hover:text-pink-600 transition-colors">About</a>
         </div>
       </nav>
     </header>
@@ -68,7 +72,7 @@
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">
           <div class="space-y-4">
-            <div class="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+            <div class="inline-flex items-center space-x-2 bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-medium">
               <i class="bi bi-lightbulb"></i>
               <span>Built by a T1D engineer</span>
             </div>
@@ -82,17 +86,17 @@
           </div>
 
           <!-- Key Stats -->
-          <div class="grid grid-cols-3 gap-4 py-4">
+                      <div class="grid grid-cols-3 gap-4 py-4">
             <div class="text-center">
-              <div class="text-2xl font-bold text-blue-600">1.6M</div>
+              <div class="text-2xl font-bold" style="color: #f2709c;">1.6M</div>
               <div class="text-sm text-gray-600">Americans with T1D</div>
             </div>
             <div class="text-center">
-              <div class="text-2xl font-bold text-green-600">750K+</div>
+              <div class="text-2xl font-bold" style="color: #ff9472;">750K+</div>
               <div class="text-sm text-gray-600">CGM users</div>
             </div>
             <div class="text-center">
-              <div class="text-2xl font-bold text-purple-600">50%+</div>
+              <div class="text-2xl font-bold" style="color: #f2709c;">50%+</div>
               <div class="text-sm text-gray-600">Want better tools</div>
             </div>
           </div>
@@ -100,7 +104,7 @@
           <!-- Waitlist Form -->
           <div class="space-y-4">
             <div class="flex items-center space-x-2">
-              <i class="bi bi-clock text-blue-500"></i>
+              <i class="bi bi-clock" style="color: #f2709c;"></i>
               <span class="text-sm font-medium text-gray-700">Early Access • Free trial then $5-10/month</span>
             </div>
             
@@ -111,7 +115,7 @@
                 name="email"
                 required
                 placeholder="Enter your email"
-                class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition-all"
                 autocomplete="email"
               />
               <button
@@ -149,7 +153,7 @@
                     </div>
                   </div>
                   
-                  <div class="bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-4 text-white">
+                  <div class="bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg p-4 text-white">
                     <div class="flex items-center justify-between mb-2">
                       <span class="text-sm opacity-90">Recommended Dose</span>
                       <i class="bi bi-bullseye"></i>
@@ -229,9 +233,9 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+                  <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center space-y-4">
-            <div class="w-20 h-20 secondary-gradient rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
+            <div class="w-20 h-20 gradient-bg rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
               1
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">Track & Learn</h3>
@@ -251,7 +255,7 @@
           </div>
 
           <div class="text-center space-y-4">
-            <div class="w-20 h-20 secondary-gradient rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
+            <div class="w-20 h-20 gradient-bg rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold">
               3
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">Smart Recommendations</h3>
@@ -261,7 +265,7 @@
           </div>
         </div>
 
-        <div class="mt-16 bg-blue-50 rounded-2xl p-8">
+        <div class="mt-16 bg-pink-50 rounded-2xl p-8">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 class="text-2xl font-bold text-gray-900 mb-4">Real Example</h3>
@@ -279,12 +283,12 @@
                   <span class="font-medium">6.0u (often too much)</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-blue-600 font-medium">Sugarlytics:</span>
-                  <span class="font-bold text-blue-600">4.5u + prebolus</span>
+                  <span class="text-pink-600 font-medium">Sugarlytics:</span>
+                  <span class="font-bold text-pink-600">4.5u + prebolus</span>
                 </div>
                 <div class="border-t pt-2 flex justify-between">
-                  <span class="text-green-600">Improved TIR:</span>
-                  <span class="font-bold text-green-600">+23%</span>
+                  <span class="text-orange-600">Improved TIR:</span>
+                  <span class="font-bold text-orange-600">+23%</span>
                 </div>
               </div>
             </div>
@@ -298,8 +302,12 @@
       <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8 items-center">
           <div class="md:col-span-1">
-            <div class="w-48 h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mx-auto flex items-center justify-center">
-              <i class="bi bi-person text-white text-6xl"></i>
+            <div class="w-48 h-48 rounded-full mx-auto flex items-center justify-center">
+              <img
+                src="./assets/logo.png"
+                alt="Michael Szwed - Founder"
+                class="w-full h-full object-contain"
+              />
             </div>
           </div>
           <div class="md:col-span-2 space-y-4">
@@ -330,7 +338,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-6 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+    <section class="py-20 px-6 bg-gradient-to-r from-pink-500 to-orange-400 text-white">
       <div class="max-w-4xl mx-auto text-center space-y-8">
         <h2 class="text-4xl font-bold">Ready to Stop Guessing?</h2>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
@@ -347,7 +355,7 @@
           />
           <button
             type="submit"
-            class="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            class="px-8 py-3 bg-white text-pink-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Start Beta
           </button>
