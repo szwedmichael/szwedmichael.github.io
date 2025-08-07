@@ -105,7 +105,7 @@
           <div class="space-y-4">
             <div class="flex items-center space-x-2">
               <i class="bi bi-clock" style="color: #f2709c;"></i>
-              <span class="text-sm font-medium text-gray-700">Early Access • Free trial then $5-10/month</span>
+              <span class="text-sm font-medium text-gray-700">Join the Waitlist • Free trial then $5-10/month</span>
             </div>
             
             <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -122,7 +122,7 @@
                 type="submit"
                 class="px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                Join Beta
+                Join Waitlist
               </button>
             </form>
             
@@ -313,7 +313,7 @@
           <div class="md:col-span-2 space-y-4">
             <h2 class="text-3xl font-bold text-gray-900">Built by Someone Who Gets It</h2>
             <p class="text-lg text-gray-600">
-              Hi, I'm <strong>Michael Szwed</strong>, a software engineer living with Type 1 diabetes for over a decade. I've experienced the frustration of static ratios and unpredictable results firsthand.
+              Hi, I'm <strong>Michael</strong>, a software engineer living with Type 1 diabetes for over 8 years. I've experienced the frustration of static ratios and unpredictable results firsthand.
             </p>
             <p class="text-gray-600">
               After years of manually tracking patterns in spreadsheets, I realized we could do so much better. Sugarlytics combines my technical expertise with real-world diabetes experience to create the tool I wish I had from day one.
@@ -342,7 +342,7 @@
       <div class="max-w-4xl mx-auto text-center space-y-8">
         <h2 class="text-4xl font-bold">Ready to Stop Guessing?</h2>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
-          Join the beta and be among the first to experience personalized insulin dosing. Free trial, then just $5-10/month.
+          Join the waitlist and be among the first to experience personalized insulin dosing. Free trial, then just $5-10/month.
         </p>
         
         <form id="waitlist-form-2" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -357,7 +357,7 @@
             type="submit"
             class="px-8 py-3 bg-white text-pink-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
-            Start Beta
+            Join Waitlist
           </button>
         </form>
         
@@ -383,12 +383,16 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6">
       <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
           <div class="md:col-span-2 space-y-4">
             <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-                <i class="bi bi-bullseye text-white text-xl"></i>
-              </div>
+              <a class="w-10 h-10" href="">
+                <img
+                  src="./assets/logo.png"
+                  alt="Sugarlytics logo"
+                  class="w-full h-full object-contain"
+                />
+              </a>
               <span class="text-2xl font-bold">Sugarlytics</span>
             </div>
             <p class="text-gray-300 max-w-md">
@@ -397,20 +401,9 @@
           </div>
           
           <div>
-            <h4 class="font-semibold mb-4">Product</h4>
+            <h4 class="font-semibold mb-4">Contact</h4>
             <div class="space-y-2 text-gray-300 text-sm">
-              <div>How It Works</div>
-              <div>Pricing</div>
-              <div>Beta Access</div>
-            </div>
-          </div>
-          
-          <div>
-            <h4 class="font-semibold mb-4">Legal</h4>
-            <div class="space-y-2 text-gray-300 text-sm">
-              <div>Privacy Policy</div>
-              <div>Terms of Service</div>
-              <div>Contact</div>
+              <a href="mailto:general@sugarlytics.com" class="hover:text-white transition-colors">general@sugarlytics.com</a>
             </div>
           </div>
         </div>
@@ -462,7 +455,7 @@
             .then((data) => {
               if (data.result === 'success') {
                 formMessage.style.color = 'green';
-                formMessage.textContent = '🎉 You\'re in! Check your email for beta updates.';
+                formMessage.textContent = '🎉 You\'re on the waitlist! Check your email for updates.';
                 form.reset();
               } else {
                 formMessage.style.color = 'red';
