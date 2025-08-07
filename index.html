@@ -81,7 +81,7 @@
               <span class="gradient-text">insulin doses</span>
             </h1>
             <p class="text-xl text-gray-600 max-w-lg">
-              Pizza hits different than pasta. Your 3pm insulin works differently than 8am. Sugarlytics learns your unique patterns to recommend personalized doses that adapt to your real-world responses.
+              Your correction ratio at 160 isn't the same as at 280. You eat the same thing daily but insulin sensitivity varies. Most T1Ds dose on "vibes" as much as calculations. Sugarlytics learns your real patterns to give you the answers algorithms should provide.
             </p>
           </div>
 
@@ -194,9 +194,9 @@
             <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
               <i class="bi bi-calculator text-red-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Static Ratios</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Static Ratios Don't Work</h3>
             <p class="text-gray-600">
-              "1 unit per 15g carbs" assumes pizza = pasta = fruit. Your body knows better.
+              "My correction ratio at 160 is not the same as at 280. I eat the same thing everyday but my control varies with insulin sensitivity changes."
             </p>
           </div>
           
@@ -204,9 +204,9 @@
             <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
               <i class="bi bi-graph-down text-red-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Guesswork</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Missing Pattern Analysis</h3>
             <p class="text-gray-600">
-              Existing apps show graphs and stats but don't tell you what to do next.
+              "I want to look back over days and weeks to see that when I eat X with Y, my blood sugar goes up more than when I pair X with Z."
             </p>
           </div>
           
@@ -214,9 +214,9 @@
             <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
               <i class="bi bi-exclamation-triangle text-red-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Frustration</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Dosing on "Vibes"</h3>
             <p class="text-gray-600">
-              Unpredictable results lead to high and low blood sugars, stress, and burnout.
+              "Most T1Ds that manage to meet ADA targets dose as much on 'vibes' as they do on calculations. We need better algorithms."
             </p>
           </div>
         </div>
@@ -240,7 +240,7 @@
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">Track & Learn</h3>
             <p class="text-gray-600">
-              Connect your CGM, log meals and insulin. We track how your body responds to different foods, times, and situations.
+              Track BG, insulin, exercise, and food inputs. We analyze carbs, protein, fat, fiber, time of day, and insulin sensitivity variations.
             </p>
           </div>
 
@@ -250,7 +250,7 @@
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">Pattern Recognition</h3>
             <p class="text-gray-600">
-              Machine learning identifies your unique patterns: how pizza affects you vs. pasta, morning vs. evening sensitivity.
+              Machine learning finds patterns you can't see: how X with Y affects you differently than X with Z, and tracks insulin sensitivity changes over time.
             </p>
           </div>
 
@@ -260,7 +260,7 @@
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">Smart Recommendations</h3>
             <p class="text-gray-600">
-              Get personalized dose suggestions that improve over time. The more you use it, the more accurate it becomes.
+              Get learned insulin dosing recommendations that account for your current BG, insulin sensitivity, and meal composition. Less "vibes," more precision.
             </p>
           </div>
         </div>
@@ -268,27 +268,51 @@
         <div class="mt-16 bg-pink-50 rounded-2xl p-8">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Real Example</h3>
-              <p class="text-gray-600 mb-4">
-                After tracking pizza meals for 2 weeks, Sugarlytics learns that your pizza needs 25% less insulin than your standard carb ratio suggests, and works better with a 15-minute pre-bolus.
-              </p>
-              <p class="text-gray-600">
-                <strong>Result:</strong> More time in range, fewer corrections, less stress.
-              </p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Insulin Sensitivity Learning</h3>
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
+                  <div class="font-semibold text-gray-800">Same Breakfast, Different Days</div>
+                  <div class="text-sm text-gray-600">Monday: 4u for oatmeal → stayed at 120 mg/dL</div>
+                  <div class="text-sm text-red-600">Wednesday: 4u for oatmeal → spiked to 210 mg/dL</div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border-l-4 border-yellow-400">
+                  <div class="font-semibold text-gray-800">System Learns Pattern</div>
+                  <div class="text-sm text-gray-600">Noticed: stress, sleep, hormones affect sensitivity</div>
+                  <div class="text-sm text-yellow-600">Wednesday factors: 6hr sleep + high stress day</div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border-l-4 border-green-400">
+                  <div class="font-semibold text-gray-800">Adaptive Recommendation</div>
+                  <div class="text-sm text-gray-600">Next similar day: suggests 5.2u for same oatmeal</div>
+                  <div class="text-sm text-green-600">Result: Perfect 130 mg/dL, no spike</div>
+                </div>
+              </div>
             </div>
             <div class="bg-white p-6 rounded-xl">
-              <div class="space-y-3">
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Standard approach:</span>
-                  <span class="font-medium">6.0u (often too much)</span>
+              <div class="text-center space-y-4">
+                <h4 class="text-xl font-semibold text-gray-800">Your Sensitivity Profile</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Patterns Learned:</span>
+                    <span class="font-bold text-green-600">47</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Key Factors:</span>
+                    <span class="font-medium">Sleep, stress, exercise</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Sensitivity Range:</span>
+                    <span class="font-medium">0.8x - 1.4x baseline</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Same Meal Variance:</span>
+                    <span class="font-medium">±30% less guessing</span>
+                  </div>
                 </div>
-                <div class="flex justify-between">
-                  <span class="text-pink-600 font-medium">Sugarlytics:</span>
-                  <span class="font-bold text-pink-600">4.5u + prebolus</span>
-                </div>
-                <div class="border-t pt-2 flex justify-between">
-                  <span class="text-orange-600">Improved TIR:</span>
-                  <span class="font-bold text-orange-600">+23%</span>
+                <div class="border-t pt-4 text-center">
+                  <div class="text-2xl font-bold text-pink-600">+28%</div>
+                  <div class="text-sm text-gray-600">Time in Range Improvement</div>
                 </div>
               </div>
             </div>
@@ -410,7 +434,7 @@
         
         <div class="border-t border-gray-800 mt-8 pt-8">
           <div class="text-center text-gray-400 text-sm space-y-2">
-            <p>&copy; 2025 Sugarlytics LLC. All rights reserved.</p>
+            <p>&copy; 2025 Sugarlytics LLC.</p>
             <p class="text-xs">
               Sugarlytics is not a medical device and is not intended to replace professional medical advice, diagnosis, or treatment. 
               Always consult with your healthcare provider before making changes to your diabetes management routine.
