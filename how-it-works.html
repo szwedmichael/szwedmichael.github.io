@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How It Works - Sugarlytics</title>
+    <meta
+      name="description"
+      content="Learn how Sugarlytics works to provide personalized insulin dosing recommendations and simplify your diabetes management."
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/logo.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      .gradient-text {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+      }
+      .secondary-gradient {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <!-- Header -->
+    <header class="fixed top-0 z-20 w-full bg-white shadow-md px-6 py-4">
+      <nav class="flex items-center justify-between max-w-7xl mx-auto">
+        <div class="flex items-center space-x-3">
+          <a href="/" class="flex items-center space-x-2">
+            <img
+              src="./assets/logo.png"
+              alt="Sugarlytics logo"
+              class="w-10 h-10 object-contain"
+            />
+            <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
+          </a>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="why-us.html" class="text-gray-700 hover:text-pink-600 transition-colors">Why Us?</a>
+          <a href="how-it-works.html" class="text-gray-700 hover:text-pink-600 transition-colors">How It Works</a>
+          <a href="about.html" class="text-gray-700 hover:text-pink-600 transition-colors">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-24 max-w-5xl mx-auto px-6 space-y-16">
+        <h1 class="text-4xl font-bold mb-6 text-gray-900">How It Works</h1>
+      <!-- Step 1 -->
+      <section class="bg-white rounded-3xl p-10 shadow-md">
+        <h2 class="text-3xl font-semibold mb-4 text-pink-600">Step 1: Download the App</h2>
+        <p class="text-gray-700 max-w-3xl leading-relaxed">
+          Start by downloading the Sugarlytics app from the App Store or Google Play. Our intuitive and user friendly design makes it easy to get started on your journey to better diabetes management.
+        </p>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="bg-white rounded-3xl p-10 shadow-md">
+        <h2 class="text-3xl font-semibold mb-4 text-pink-600">Step 2: Create Your Account</h2>
+        <p class="text-gray-700 max-w-3xl leading-relaxed">
+          Set up your personalized account by entering your basic details. This ensures your data is secure and allows you to sync across devices seamlessly.
+        </p>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="bg-white rounded-3xl p-10 shadow-md">
+        <h2 class="text-3xl font-semibold mb-4 text-pink-600">Step 3: Connect Your Existing Tools</h2>
+        <p class="text-gray-700 max-w-3xl leading-relaxed">
+          Easily connect your Continuous Glucose Monitor (CGM), health apps, fitness trackers, and other relevant devices. Sugarlytics integrates all your health data into one comprehensive platform, giving you a complete picture.
+        </p>
+      </section>
+
+      <!-- Step 4 -->
+      <section class="bg-white rounded-3xl p-10 shadow-md">
+        <h2 class="text-3xl font-semibold mb-4 text-pink-600">Step 4: Start Logging Your Meals</h2>
+        <p class="text-gray-700 max-w-3xl leading-relaxed">
+            Begin logging your meals and insulin doses. The app tracks your food intake and insulin responses while also taking into account factors like time of day, fitness activity, and other relevant data to provide a comprehensive understanding of how different foods and conditions affect your blood sugar.        </p>
+      </section>
+
+      <!-- Step 5 -->
+      <section class="bg-white rounded-3xl p-10 shadow-md">
+        <h2 class="text-3xl font-semibold mb-4 text-pink-600">Step 5: Let Sugarlytics Learn and Optimize</h2>
+        <p class="text-gray-700 max-w-3xl leading-relaxed">
+          Over time, our adaptive technology analyzes your data to learn your unique biology and patterns. Sugarlytics will optimize your insulin dosing recommendations, helping you achieve better blood sugar control with less guesswork.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 mt-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2 space-y-4">
+            <div class="flex items-center space-x-3">
+              <a href="/" class="flex items-center space-x-2">
+                <img
+                  src="./assets/logo.png"
+                  alt="Sugarlytics logo"
+                  class="w-10 h-10 object-contain"
+                />
+                <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
+              </a>
+            </div>
+            <p class="text-gray-300 max-w-md">
+              Personalized diabetes data insights that learn from your unique patterns and adapt to your real-world responses.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <div class="space-y-2 text-gray-300 text-sm">
+              <a href="mailto:general@sugarlytics.com" class="hover:text-white transition-colors">general@sugarlytics.com</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a href="https://twitter.com/sugarlytics" class="text-gray-300 hover:text-white transition-colors" aria-label="Twitter">
+                <i class="bi bi-twitter text-xl"></i>
+              </a>
+              <a href="https://instagram.com/sugarlytics" class="text-gray-300 hover:text-white transition-colors" aria-label="Instagram">
+                <i class="bi bi-instagram text-xl"></i>
+              </a>
+              <a href="https://linkedin.com/company/sugarlytics" class="text-gray-300 hover:text-white transition-colors" aria-label="LinkedIn">
+                <i class="bi bi-linkedin text-xl"></i>
+              </a>
+              <a href="https://tiktok.com/@sugarlytics" class="text-gray-300 hover:text-white transition-colors" aria-label="TikTok">
+                <i class="bi bi-tiktok text-xl"></i>
+              </a>
+              <a href="https://reddit.com/u/sugarlytics" class="text-gray-300 hover:text-white transition-colors" aria-label="Reddit">
+                <i class="bi bi-reddit text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8">
+          <div class="text-center text-gray-400 text-sm space-y-2">
+            <p>&copy; 2025 Sugarlytics LLC.</p>
+            <p class="text-xs">
+              Sugarlytics is not a medical device and is not intended to replace professional medical advice, diagnosis, or treatment. 
+              Always consult with your healthcare provider before making changes to your diabetes management routine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
