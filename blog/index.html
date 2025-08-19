@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sugarlytics Blog</title>
+    <meta name="description" content="Read the latest posts from the Sugarlytics team." />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <header class="px-6 py-4">
+      <nav class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+          <img src="../assets/logo.png" class="w-10 h-10" alt="Sugarlytics" />
+          <span class="text-2xl font-bold" style="background: linear-gradient(135deg, #f2709c, #ff9472); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sugarlytics</span>
+        </a>
+      </nav>
+    </header>
+    <main class="px-6 py-16">
+      <section class="max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">All Blog Posts</h1>
+        <div id="all-posts" class="grid md:grid-cols-3 gap-6"></div>
+      </section>
+    </main>
+    <script>
+      fetch('../assets/blog/posts.json', { cache: 'no-cache' })
+        .then(r => r.ok ? r.json() : [])
+        .then(posts => {
+          if (!Array.isArray(posts)) return
+          posts.sort((a,b) => new Date(b.date) - new Date(a.date))
+          const container = document.getElementById('all-posts')
+          container.innerHTML = ''
+          posts.forEach(p => {
+            const card = document.createElement('article')
+            card.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'
+            card.innerHTML = `
+              ${p.thumbnail ? `<img src="../${p.thumbnail}" alt="${p.title}" class="w-full h-40 object-cover" />` : ''}
+              <div class="p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-2">${p.title}</h2>
+                <p class="text-gray-600 mb-4">${p.snippet}</p>
+                <a class="text-pink-600 font-medium hover:underline" href="../${p.url}">Read More →</a>
+              </div>
+            `
+            container.appendChild(card)
+          })
+        })
+        .catch(() => {})
+    </script>
+  </body>
+  </html>
+
