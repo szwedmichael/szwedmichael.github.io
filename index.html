@@ -141,6 +141,16 @@
             <p class="text-xs text-gray-500">
               Early access updates. Launch announcements. Privacy protected.
             </p>
+
+            <!-- App Store Badges -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="#" class="inline-flex items-center justify-center transition-transform hover:scale-105">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1670889600" alt="Download on the App Store" class="h-12" />
+              </a>
+              <a href="#" class="inline-flex items-center justify-center transition-transform hover:scale-105">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-12" />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -337,20 +347,60 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-12">
           <h2 class="text-4xl font-bold text-gray-900">About Sugarlytics</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Sugarlytics was founded by two software engineers — one of whom, Michael, lives with type 1 diabetes — to create smarter, more adaptive diabetes management tools. We’ve built a team of Type 1 diabetics, engineers, and health innovators on a mission to make diabetes management smarter and less stressful. Our adaptive technology helps you spend less time calculating and more time living.</p>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Sugarlytics was founded by two software engineers — one of whom, Michael, lives with type 1 diabetes — to create smarter, more adaptive diabetes management tools. We've built a team of Type 1 diabetics, engineers, and health innovators on a mission to make diabetes management smarter and less stressful. Our adaptive technology helps you spend less time calculating and more time living.</p>
         </div>
-        <div class="grid sm:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow text-center">
-            <img src="assets/images/people/mike.jpg" onerror="this.onerror=null;this.src='assets/images/people/man2.jpg';" alt="Michael Szwed" class="w-28 h-28 rounded-2xl object-cover mx-auto mb-4" />
-            <h3 class="font-semibold text-gray-900">Michael Szwed</h3>
-            <p class="text-gray-600 text-sm">Co‑Founder</p>
+
+        <!-- Founder's Story -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 mb-12 max-w-4xl mx-auto">
+          <div class="flex items-center space-x-3 mb-6">
+            <i class="bi bi-heart-pulse text-3xl" style="color: #f2709c;"></i>
+            <h3 class="text-2xl font-bold text-gray-900">Why We Built This</h3>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow text-center">
-            <img src="assets/images/people/ian.jpg" onerror="this.onerror=null;this.src='assets/images/people/man2.jpg';" alt="Ian Moran" class="w-28 h-28 rounded-2xl object-contain mx-auto mb-4" />
-            <h3 class="font-semibold text-gray-900">Ian Moran</h3>
-            <p class="text-gray-600 text-sm">Co‑Founder</p>
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Michael was diagnosed with Type 1 diabetes in his early twenties. Like millions of others, he quickly learned that managing diabetes isn't just about counting carbs and taking insulin—it's about understanding your unique body's responses, adapting to constant changes, and making dozens of critical decisions every single day.
+            </p>
+            <p>
+              After years of manual calculations, spreadsheets, and guesswork, Michael realized that the tools available weren't leveraging modern technology to actually learn from individual patterns. Standard carb ratios and correction factors don't account for the fact that pizza affects you differently than pasta, or that your morning insulin needs differ from evening, or that yesterday's workout still impacts today's glucose.
+            </p>
+            <p>
+              "I was tired of playing guessing games with my health," Michael says. "As a software engineer, I knew we could build something better—something that learns from your real-world data and adapts to your unique patterns, not generic formulas."
+            </p>
+            <p>
+              Together with co-founder Ian, Michael set out to create the diabetes management tool they wished had existed from day one. Sugarlytics combines advanced pattern recognition with personalized insights to help people with Type 1 diabetes make smarter, more confident decisions about their care.
+            </p>
           </div>
         </div>
+
+        <!-- Mission Statement -->
+        <div class="bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-8 md:p-10 mb-12 max-w-4xl mx-auto border-2 border-pink-200">
+          <div class="text-center space-y-4">
+            <h3 class="text-2xl font-bold text-gray-900">Our Mission</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              To empower people with Type 1 diabetes to achieve better health outcomes through personalized, adaptive technology that learns from their unique patterns—helping them spend less time managing their condition and more time living their lives.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">Meet the Founders</h3>
+          <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+              <img src="assets/images/people/mike.jpg" onerror="this.onerror=null;this.src='assets/images/people/man2.jpg';" alt="Michael Szwed" class="w-28 h-28 rounded-2xl object-cover mx-auto mb-4" />
+              <h4 class="font-semibold text-gray-900">Michael Szwed</h4>
+              <p class="text-gray-600 text-sm mb-2">Co‑Founder & CEO</p>
+              <p class="text-sm text-gray-600">Living with T1D, Software Engineer</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+              <img src="assets/images/people/ian.jpg" onerror="this.onerror=null;this.src='assets/images/people/man2.jpg';" alt="Ian Moran" class="w-28 h-28 rounded-2xl object-contain mx-auto mb-4" />
+              <h4 class="font-semibold text-gray-900">Ian Moran</h4>
+              <p class="text-gray-600 text-sm mb-2">Co‑Founder & CTO</p>
+              <p class="text-sm text-gray-600">Software Engineer, Health Tech Innovator</p>
+            </div>
+          </div>
+        </div>
+
         <div class="text-center mt-10">
           <a href="https://www.linkedin.com/company/sugarlytics" class="px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transition">Join the Team</a>
         </div>

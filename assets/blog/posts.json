@@ -1,23 +1,37 @@
 [
   {
-    "title": "5 Ways to Improve Your Insulin Dosing Today",
-    "snippet": "Learn how adaptive dosing can save you time and improve control.",
-    "date": "2025-02-10",
-    "url": "blog/post-1.html",
+    "title": "Understanding Blood Sugar: A Complete Guide for Type 1 Diabetics",
+    "snippet": "Learn everything about blood sugar management for Type 1 diabetes. Understand glucose levels, what affects them, and how to maintain optimal control.",
+    "date": "2025-01-24",
+    "url": "blog/understanding-blood-sugar-guide.html",
     "thumbnail": "assets/images/home/sample.jpg"
   },
   {
-    "title": "The Science Behind Adaptive Ratios",
-    "snippet": "Why static carb counting is outdated and what comes next.",
-    "date": "2025-02-08",
-    "url": "blog/post-2.html",
+    "title": "Insulin 101: Types, Timing, and How to Optimize Your Doses",
+    "snippet": "Complete guide to insulin types for Type 1 diabetes. Learn about rapid-acting vs long-acting insulin, optimal timing, and tips for better glucose control.",
+    "date": "2025-01-24",
+    "url": "blog/insulin-101-types-timing-optimization.html",
     "thumbnail": "assets/images/home/sample.jpg"
   },
   {
-    "title": "How Fitness Data Impacts Glucose Management",
-    "snippet": "Your workouts and stress levels play a bigger role than you think.",
-    "date": "2025-02-05",
-    "url": "blog/post-3.html",
+    "title": "How Food Affects Your Blood Sugar: The Glycemic Index Explained",
+    "snippet": "Master the glycemic index and glycemic load to make smarter food choices and achieve better blood sugar control with Type 1 diabetes.",
+    "date": "2025-01-24",
+    "url": "blog/food-blood-sugar-glycemic-index.html",
+    "thumbnail": "assets/images/home/sample.jpg"
+  },
+  {
+    "title": "Exercise and Blood Sugar: What Every Diabetic Should Know",
+    "snippet": "Learn how exercise affects blood sugar in Type 1 diabetes. Discover strategies for pre and post-workout glucose management and preventing lows.",
+    "date": "2025-01-24",
+    "url": "blog/exercise-blood-sugar-diabetic-guide.html",
+    "thumbnail": "assets/images/home/sample.jpg"
+  },
+  {
+    "title": "CGM vs Finger Sticks: Which Glucose Monitoring is Right for You?",
+    "snippet": "Compare continuous glucose monitors (Dexcom, Libre) with traditional finger stick testing. Learn the pros, cons, accuracy, and costs.",
+    "date": "2025-01-24",
+    "url": "blog/cgm-vs-finger-sticks.html",
     "thumbnail": "assets/images/home/sample.jpg"
   }
 ]
