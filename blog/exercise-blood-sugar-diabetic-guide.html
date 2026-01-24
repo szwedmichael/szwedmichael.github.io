@@ -4,33 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Exercise and Blood Sugar: What Every Diabetic Should Know | Sugarlytics</title>
-    <meta name="description" content="Learn how exercise affects blood sugar in Type 1 diabetes. Discover strategies for pre and post-workout glucose management, preventing lows, and staying safe during physical activity." />
-    <meta name="keywords" content="exercise and diabetes, Type 1 diabetes workout, blood sugar and exercise, preventing exercise lows, diabetes fitness, glucose management exercise, diabetic athlete, physical activity diabetes" />
+    <meta name="description" content="Learn how exercise affects blood sugar in Type 1 diabetes. Discover strategies for pre and post-workout glucose management." />
+    <meta name="keywords" content="exercise and diabetes, Type 1 diabetes workout, blood sugar and exercise, preventing exercise lows, diabetes fitness, glucose management exercise" />
     <link rel="canonical" href="https://sugarlytics.com/blog/exercise-blood-sugar-diabetic-guide.html" />
     <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <style>
-      .gradient-text {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                50: '#F0FDF4',
+                500: '#10B981',
+                600: '#059669',
+              }
+            }
+          }
+        }
       }
-      .gradient-bg {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-      }
-    </style>
+    </script>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+  <body class="min-h-screen bg-white">
     <!-- Header -->
     <header class="px-6 py-4 bg-white shadow-sm">
       <nav class="max-w-4xl mx-auto flex items-center justify-between">
         <a href="../index.html" class="flex items-center space-x-3">
           <img src="../assets/logo.png" class="w-10 h-10" alt="Sugarlytics logo" />
-          <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
+          <span class="text-2xl font-bold text-gray-900">Sugarlytics</span>
         </a>
-        <a href="../index.html#hero" class="px-4 py-2 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transition">Join Waitlist</a>
+        <a href="../index.html#waitlist-form" class="px-4 py-2 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition">Join Waitlist</a>
       </nav>
     </header>
 
@@ -48,13 +52,6 @@
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Exercise and Blood Sugar: What Every Diabetic Should Know</h1>
           <p class="text-xl text-gray-600">Master the art of managing blood glucose during physical activity with proven strategies for preventing lows and staying active with Type 1 diabetes.</p>
         </header>
-
-        <!-- Medical Disclaimer -->
-        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
-          <p class="text-sm text-amber-800">
-            <strong>Educational Content Only:</strong> This article is for informational purposes only and is not medical advice. Exercise affects blood sugar differently for everyone. Work with your healthcare team before starting a new exercise program, and always have a plan for managing glucose during physical activity.
-          </p>
-        </div>
 
         <!-- Article Content -->
         <div class="prose prose-lg max-w-none">
@@ -86,7 +83,7 @@
             Activities like running, cycling, swimming, walking, and dancing use large muscle groups continuously and typically <strong>lower blood sugar</strong> during and after exercise.
           </p>
           <p class="leading-relaxed mb-6">
-            <strong>Why it lowers glucose:</strong> Your muscles use glucose for fuel during aerobic activity. As blood sugar drops, your body typically releases less insulin (or in your case, you need less injected insulin) to allow muscles to access glucose. Since you can't reduce insulin already in your system, you're at risk for hypoglycemia if you have too much active insulin during or after aerobic exercise.
+            <strong>Why it lowers glucose:</strong> Your muscles use glucose for fuel during aerobic activity. As blood sugar drops, your body typically releases less insulin to allow muscles to access glucose. Since you can't reduce insulin already in your system, you're at risk for hypoglycemia if you have too much active insulin during or after aerobic exercise.
           </p>
           <p class="leading-relaxed mb-6">
             <strong>Duration matters:</strong> Short bursts (15-20 minutes) may have minimal impact, while extended sessions (45+ minutes) significantly increase hypoglycemia risk, especially if you have active insulin on board.
@@ -114,9 +111,6 @@
           <p class="leading-relaxed mb-6">
             Checking blood sugar before exercising helps inform your approach. Your healthcare team can help you develop personalized guidelines for when it may be helpful to have a snack before activity, when to proceed with caution, and when it might be best to wait.
           </p>
-          <p class="leading-relaxed mb-6">
-            General considerations that many healthcare providers discuss with their patients include checking for ketones when glucose is significantly elevated, and having fast-acting carbs available if glucose is on the lower end of your personal range. Your specific thresholds and strategies should be developed with your healthcare team.
-          </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Consider Insulin on Board (IOB)</h3>
           <p class="leading-relaxed mb-6">
@@ -129,11 +123,6 @@
             <li>Monitor glucose more frequently</li>
           </ul>
 
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Adjust Basal Insulin</h3>
-          <p class="leading-relaxed mb-6">
-            If using an insulin pump, you can reduce your basal rate 60-90 minutes before exercise (typically by 30-80% depending on activity intensity and duration). For those on long-acting insulin injections, planning is more challenging since you can't reduce basal insulin that's already absorbed. You'll need to rely more on carb intake and strategic timing.
-          </p>
-
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Pre-Exercise Snack Guidelines</h3>
           <p class="leading-relaxed mb-6">
             If starting glucose is in a good range but you have insulin on board or plan extended activity:
@@ -143,9 +132,6 @@
             <li><strong>Moderate workout (30-60 min):</strong> 15-30g carbs</li>
             <li><strong>Long workout (60+ min):</strong> 30-45g carbs, or more depending on intensity</li>
           </ul>
-          <p class="leading-relaxed mb-6">
-            Choose easily digestible carbs like fruit, granola bars, or sports drinks. Avoid taking insulin for these pre-workout carbs unless your blood sugar is already high.
-          </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">During-Workout Strategies</h2>
 
@@ -179,7 +165,7 @@
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">The Extended Impact</h3>
           <p class="leading-relaxed mb-6">
-            Exercise can affect <a href="understanding-blood-sugar-guide.html" class="text-pink-600 hover:underline">blood sugar</a> for up to 24-48 hours after you finish. Your muscles continue absorbing glucose to replenish energy stores, and your insulin sensitivity remains elevated. This is why many athletes experience unexpected overnight lows after afternoon or evening workouts.
+            Exercise can affect <a href="understanding-blood-sugar-guide.html" class="text-emerald-600 hover:underline">blood sugar</a> for up to 24-48 hours after you finish. Your muscles continue absorbing glucose to replenish energy stores, and your insulin sensitivity remains elevated. This is why many athletes experience unexpected overnight lows after afternoon or evening workouts.
           </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Recovery Nutrition</h3>
@@ -188,14 +174,9 @@
           </p>
           <ul class="list-disc pl-6 mb-6 space-y-2">
             <li>Eating a balanced snack or meal with carbs and protein within 30-60 minutes post-workout</li>
-            <li>Reducing <a href="insulin-101-types-timing-optimization.html" class="text-pink-600 hover:underline">insulin doses</a> for post-workout meals by 25-50%</li>
+            <li>Reducing <a href="insulin-101-types-timing-optimization.html" class="text-emerald-600 hover:underline">insulin</a> for post-workout meals by 25-50%</li>
             <li>Choosing moderate GI carbs rather than high GI for more stable recovery</li>
           </ul>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Basal Insulin Adjustments</h3>
-          <p class="leading-relaxed mb-6">
-            For pump users, consider reducing basal rates by 10-30% for several hours after exercise, especially if working out in the evening. For those on long-acting insulin, you may need to reduce your nightly dose by 1-2 units after particularly intense or long exercise days, or ensure you have a bedtime snack.
-          </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Overnight Monitoring</h3>
           <p class="leading-relaxed mb-6">
@@ -234,96 +215,41 @@
             <li>Monitor frequently during and after</li>
           </ul>
 
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Team Sports and Competition</h3>
-          <ul class="list-disc pl-6 mb-6 space-y-2">
-            <li>Highly variable glucose patterns due to mixed intensity</li>
-            <li>Adrenaline from competition can raise blood sugar</li>
-            <li>Have fast-acting carbs courtside/fieldside</li>
-            <li>Check glucose during breaks and timeouts</li>
-            <li>Inform coaches and teammates about your diabetes</li>
-          </ul>
-
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Safety Tips for Exercising with Type 1 Diabetes</h2>
           <ol class="list-decimal pl-6 mb-6 space-y-3">
             <li><strong>Always carry ID:</strong> Wear a medical alert bracelet or carry identification indicating you have Type 1 diabetes</li>
             <li><strong>Never exercise alone:</strong> Especially when trying new activities or intensities, have a workout partner who knows you have diabetes</li>
             <li><strong>Carry supplies:</strong> Always have glucose tablets, a glucagon emergency kit, your meter or CGM, and water</li>
             <li><strong>Inform others:</strong> Let coaches, trainers, or workout partners know you have diabetes and how to help in an emergency</li>
-            <li><strong>Start slowly:</strong> When beginning a new exercise routine, start conservatively and increase intensity gradually as you learn your body's responses</li>
+            <li><strong>Start slowly:</strong> When beginning a new exercise routine, start conservatively and increase intensity gradually</li>
             <li><strong>Keep a log:</strong> Track pre/post glucose, insulin on board, carbs consumed, and activity details to identify patterns</li>
             <li><strong>Stay hydrated:</strong> Dehydration can affect blood sugar and performance</li>
             <li><strong>Listen to your body:</strong> If something feels off, stop and check your glucose</li>
           </ol>
 
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Common Exercise Mistakes and How to Avoid Them</h2>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Mistake 1: Not Planning Ahead</h3>
-          <p class="leading-relaxed mb-6">
-            <strong>Solution:</strong> Think about exercise timing relative to meals and insulin doses. Schedule workouts when you have minimal insulin on board, or plan to eat and reduce your bolus beforehand.
-          </p>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Mistake 2: Over-Correcting Highs Before Exercise</h3>
-          <p class="leading-relaxed mb-6">
-            <strong>Solution:</strong> If blood sugar is elevated before a workout, resist the urge to take a full correction dose. The exercise itself will help lower glucose. A full correction plus exercise often leads to severe lows.
-          </p>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Mistake 3: Ignoring the Dawn Phenomenon</h3>
-          <p class="leading-relaxed mb-6">
-            <strong>Solution:</strong> Morning workouts can be tricky because of naturally rising glucose from dawn phenomenon. You may need less pre-workout carbs or can start with slightly higher blood sugar.
-          </p>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Mistake 4: Inconsistent Routine</h3>
-          <p class="leading-relaxed mb-6">
-            <strong>Solution:</strong> Sporadic, intense workouts are harder to manage than regular, consistent activity. Try to establish a routine so your body (and insulin needs) can adapt.
-          </p>
-
-          <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Mistake 5: Not Accounting for Adrenaline</h3>
-          <p class="leading-relaxed mb-6">
-            <strong>Solution:</strong> Competition, races, or trying new activities creates adrenaline that raises blood sugar. Expect higher readings than during similar training sessions and adjust accordingly.
-          </p>
-
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Using Technology to Optimize Exercise Management</h2>
           <p class="leading-relaxed mb-6">
-            Modern diabetes technology has made exercising with Type 1 diabetes significantly safer and more manageable. <a href="cgm-vs-finger-sticks.html" class="text-pink-600 hover:underline">Continuous glucose monitors</a> allow real-time tracking of blood sugar trends during activity, alerting you to dangerous drops before you feel symptoms.
+            Modern diabetes technology has made exercising with Type 1 diabetes significantly safer and more manageable. <a href="cgm-vs-finger-sticks.html" class="text-emerald-600 hover:underline">Continuous glucose monitors</a> allow real-time tracking of blood sugar trends during activity, alerting you to dangerous drops before you feel symptoms.
           </p>
           <p class="leading-relaxed mb-6">
-            Smart diabetes platforms like <a href="https://sugarlytics.com" class="text-pink-600 hover:underline font-semibold">Sugarlytics</a> can analyze how specific types of exercise affect your glucose and help you develop personalized strategies. By tracking patterns across multiple workouts, the app learns your unique responses and can suggest optimal insulin adjustments and carb intake for different activities.
+            Smart diabetes platforms like <a href="https://sugarlytics.com" class="text-emerald-600 hover:underline font-semibold">Sugarlytics</a> can analyze how specific types of exercise affect your glucose and help you develop personalized strategies. By tracking patterns across multiple workouts, the app learns your unique responses.
           </p>
-
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Building Your Personal Exercise Strategy</h2>
-          <p class="leading-relaxed mb-6">
-            The most important thing to understand about exercise and diabetes is that everyone's response is different. Two people with Type 1 diabetes doing the same workout may have completely different blood sugar patterns. Your strategy should be based on <em>your</em> data, not generic guidelines.
-          </p>
-          <p class="leading-relaxed mb-6">
-            Start by:
-          </p>
-          <ol class="list-decimal pl-6 mb-6 space-y-2">
-            <li>Choosing activities you enjoy and will stick with long-term</li>
-            <li>Beginning conservatively and gradually increasing intensity</li>
-            <li>Keeping detailed records of glucose, insulin, carbs, and activity</li>
-            <li>Identifying patterns in how different exercises affect you</li>
-            <li>Adjusting your approach based on real-world results</li>
-            <li>Working with your healthcare team to optimize your strategy</li>
-          </ol>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Conclusion</h2>
           <p class="leading-relaxed mb-6">
             Exercise is one of the best things you can do for your health with Type 1 diabetes, but it requires planning, monitoring, and patience to master. Don't let the complexity discourage you from being active. With the right strategies and tools, you can safely enjoy any type of physical activity you choose.
           </p>
           <p class="leading-relaxed mb-6">
-            Remember that managing exercise with diabetes is a learning process. You won't get it perfect every time, and that's okay. Each workout teaches you more about your body's unique responses. Over time, you'll develop an intuitive understanding of how to adjust insulin, carbs, and timing to stay active while maintaining stable blood sugar.
-          </p>
-          <p class="leading-relaxed mb-6">
-            The benefits of regular physical activity—improved fitness, better insulin sensitivity, enhanced mood, and overall well-being—are absolutely worth the effort. You've got this!
+            Remember that managing exercise with diabetes is a learning process. You won't get it perfect every time, and that's okay. Each workout teaches you more about your body's unique responses. Over time, you'll develop an intuitive understanding of how to stay active while maintaining stable blood sugar.
           </p>
 
           <!-- Call to Action -->
-          <div class="mt-12 p-6 bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl border-2 border-pink-200">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Master Exercise with Personalized Insights</h3>
+          <div class="mt-12 p-6 bg-emerald-50 rounded-xl border border-emerald-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Understand Your Exercise Patterns</h3>
             <p class="text-gray-700 mb-4">
-              Ready to understand exactly how different activities affect your blood sugar? Sugarlytics analyzes your exercise patterns and glucose responses to help you optimize your workout routine.
+              Ready to understand exactly how different activities affect your blood sugar? Sugarlytics analyzes your exercise patterns and glucose responses to help you stay active safely.
             </p>
-            <a href="https://sugarlytics.com/#hero" class="inline-block px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transition">
+            <a href="https://sugarlytics.com/#waitlist-form" class="inline-block px-6 py-3 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition">
               Join the Waitlist
             </a>
           </div>
@@ -338,7 +264,7 @@
               </a>
               <a href="insulin-101-types-timing-optimization.html" class="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
                 <h4 class="font-semibold text-gray-900 mb-2">Insulin 101: Types and Timing</h4>
-                <p class="text-sm text-gray-600">Optimize your insulin dosing strategies</p>
+                <p class="text-sm text-gray-600">Learn about insulin types and timing</p>
               </a>
             </div>
           </div>
@@ -347,7 +273,7 @@
 
       <!-- Back to Blog -->
       <div class="max-w-4xl mx-auto mt-8 text-center">
-        <a href="index.html" class="text-pink-600 hover:text-pink-700 font-semibold">
+        <a href="index.html" class="text-emerald-600 hover:text-emerald-700 font-semibold">
           ← Back to All Blog Posts
         </a>
       </div>

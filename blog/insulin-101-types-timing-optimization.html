@@ -3,34 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Insulin 101: Types, Timing, and How to Optimize Your Doses | Sugarlytics</title>
+    <title>Insulin 101: Types, Timing, and Optimization | Sugarlytics</title>
     <meta name="description" content="Complete guide to insulin types for Type 1 diabetes. Learn about rapid-acting vs long-acting insulin, optimal timing, and tips for better glucose control." />
-    <meta name="keywords" content="insulin types, rapid acting insulin, long acting insulin, insulin timing, insulin dosing, Type 1 diabetes, basal insulin, bolus insulin, insulin optimization" />
+    <meta name="keywords" content="insulin types, rapid acting insulin, long acting insulin, insulin timing, Type 1 diabetes, basal insulin, bolus insulin" />
     <link rel="canonical" href="https://sugarlytics.com/blog/insulin-101-types-timing-optimization.html" />
     <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-    <style>
-      .gradient-text {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                50: '#F0FDF4',
+                500: '#10B981',
+                600: '#059669',
+              }
+            }
+          }
+        }
       }
-      .gradient-bg {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-      }
-    </style>
+    </script>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+  <body class="min-h-screen bg-white">
     <!-- Header -->
     <header class="px-6 py-4 bg-white shadow-sm">
       <nav class="max-w-4xl mx-auto flex items-center justify-between">
         <a href="../index.html" class="flex items-center space-x-3">
           <img src="../assets/logo.png" class="w-10 h-10" alt="Sugarlytics logo" />
-          <span class="text-2xl font-bold gradient-text">Sugarlytics</span>
+          <span class="text-2xl font-bold text-gray-900">Sugarlytics</span>
         </a>
-        <a href="../index.html#hero" class="px-4 py-2 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transition">Join Waitlist</a>
+        <a href="../index.html#waitlist-form" class="px-4 py-2 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition">Join Waitlist</a>
       </nav>
     </header>
 
@@ -45,16 +49,9 @@
             <span>•</span>
             <span>12 min read</span>
           </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Insulin 101: Types, Timing, and How to Optimize Your Doses</h1>
-          <p class="text-xl text-gray-600">Your comprehensive guide to understanding insulin types, when to take them, and expert tips for achieving better blood sugar control.</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Insulin 101: Types, Timing, and Optimization</h1>
+          <p class="text-xl text-gray-600">Your comprehensive guide to understanding insulin types, when to take them, and tips for achieving better blood sugar control.</p>
         </header>
-
-        <!-- Medical Disclaimer -->
-        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
-          <p class="text-sm text-amber-800">
-            <strong>Educational Content Only:</strong> This article is for informational purposes only and is not medical advice. Insulin dosing is highly individual and should only be adjusted under the guidance of your healthcare provider. Never change your insulin regimen without consulting your doctor.
-          </p>
-        </div>
 
         <!-- Article Content -->
         <div class="prose prose-lg max-w-none">
@@ -148,7 +145,7 @@
             This approach offers flexibility in meal timing and better overall control compared to fixed-mix insulins. It's the foundation of modern Type 1 diabetes management, whether using injections or an insulin pump.
           </p>
 
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Insulin Timing: When to Take Your Doses</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Insulin Timing: When to Take Your Insulin</h2>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Basal Insulin Timing</h3>
           <p class="leading-relaxed mb-6">
@@ -168,30 +165,21 @@
             Pre-bolusing is one of the most effective strategies for reducing post-meal blood sugar spikes. Even 5-10 minutes can make a significant difference. The exact timing may vary based on your current glucose level and the type of meal.
           </p>
 
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Calculating Insulin Doses</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Understanding Insulin Calculations</h2>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Insulin-to-Carb Ratio (ICR)</h3>
           <p class="leading-relaxed mb-6">
-            Your insulin-to-carb ratio tells you how many grams of carbohydrate are covered by one unit of rapid-acting insulin. For example, a ratio of 1:10 means one unit of insulin covers 10 grams of carbs. If you're eating 50 grams of carbs, you would need 5 units of insulin.
-          </p>
-          <p class="leading-relaxed mb-6">
-            ICR can vary throughout the day. Many people need more insulin per carb at breakfast (like 1:8) and less at dinner (like 1:12) due to hormonal variations and insulin sensitivity changes.
+            Your insulin-to-carb ratio tells you how many grams of carbohydrate are covered by one unit of rapid-acting insulin. For example, a ratio of 1:10 means one unit of insulin covers 10 grams of carbs. ICR can vary throughout the day. Many people need more insulin per carb at breakfast (like 1:8) and less at dinner (like 1:12) due to hormonal variations and insulin sensitivity changes.
           </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Correction Factor (Insulin Sensitivity Factor)</h3>
           <p class="leading-relaxed mb-6">
-            Your correction factor indicates how much one unit of rapid-acting insulin will lower your blood sugar. For instance, if your correction factor is 1:50, one unit of insulin will decrease your glucose by about 50 mg/dL.
-          </p>
-          <p class="leading-relaxed mb-6">
-            To calculate a correction dose, subtract your target glucose from your current glucose, then divide by your correction factor. If your glucose is 200 mg/dL, your target is 100 mg/dL, and your correction factor is 1:50, you would need 2 units: (200-100)/50 = 2.
+            Your correction factor indicates how much one unit of rapid-acting insulin will lower your blood sugar. For instance, if your correction factor is 1:50, one unit of insulin will decrease your glucose by about 50 mg/dL. These ratios are highly individual and should be determined with your healthcare team.
           </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Insulin on Board (Active Insulin)</h3>
           <p class="leading-relaxed mb-6">
             Insulin on board (IOB) refers to insulin from a previous dose that's still active in your system. Most rapid-acting insulin remains active for 3-5 hours. It's crucial to account for IOB when calculating correction doses to avoid "insulin stacking" and subsequent hypoglycemia.
-          </p>
-          <p class="leading-relaxed mb-6">
-            Modern insulin pumps and smart pens automatically track IOB for you, but if you're using regular injections, you need to consider this manually.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Advanced Insulin Strategies</h2>
@@ -218,7 +206,7 @@
             <li>Monitor closely for delayed hypoglycemia up to 24 hours post-exercise</li>
           </ul>
           <p class="leading-relaxed mb-6">
-            Learn more about managing blood sugar during physical activity in our article: <a href="exercise-blood-sugar-diabetic-guide.html" class="text-pink-600 hover:underline">Exercise and Blood Sugar: What Every Diabetic Should Know</a>.
+            Learn more about managing blood sugar during physical activity in our article: <a href="exercise-blood-sugar-diabetic-guide.html" class="text-emerald-600 hover:underline">Exercise and Blood Sugar: What Every Diabetic Should Know</a>.
           </p>
 
           <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Sick Day Management</h3>
@@ -233,26 +221,26 @@
             <li>Stay hydrated and contact your healthcare provider if ketones are present</li>
           </ul>
 
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Tips for Optimizing Your Insulin Doses</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Tips for Better Insulin Management</h2>
           <ol class="list-decimal pl-6 mb-6 space-y-3">
-            <li><strong>Track your data:</strong> Keep detailed records of insulin doses, carbs, blood sugar readings, and activities. This data is invaluable for identifying patterns.</li>
-            <li><strong>Master carb counting:</strong> Accurate carb counting is the foundation of good dosing. Use a food scale and nutrition labels initially until you can estimate portions accurately.</li>
+            <li><strong>Track your data:</strong> Keep detailed records of insulin, carbs, blood sugar readings, and activities. This data is invaluable for identifying patterns.</li>
+            <li><strong>Master carb counting:</strong> Accurate carb counting is the foundation of good management. Use a food scale and nutrition labels initially until you can estimate portions accurately.</li>
             <li><strong>Pre-bolus when possible:</strong> Even 5-10 minutes before eating can significantly reduce post-meal spikes.</li>
             <li><strong>Personalize your ratios:</strong> Standard formulas are starting points. Your actual ratios should be based on your real-world responses.</li>
             <li><strong>Consider food factors beyond carbs:</strong> Fat and protein content affects glucose, especially in large amounts.</li>
-            <li><strong>Use pattern recognition:</strong> If you eat the same foods regularly, note how much insulin works best for those specific meals.</li>
+            <li><strong>Use pattern recognition:</strong> If you eat the same foods regularly, note how your body responds to those specific meals.</li>
             <li><strong>Adjust basal rates carefully:</strong> Change basal insulin by only 10-20% at a time and observe results for several days before making further adjustments.</li>
             <li><strong>Time corrections wisely:</strong> Wait at least 2-3 hours after your last bolus before giving additional correction insulin.</li>
             <li><strong>Work with your team:</strong> Regular check-ins with your endocrinologist and diabetes educator help optimize your insulin regimen.</li>
-            <li><strong>Leverage technology:</strong> Use apps and tools that can help identify patterns in your insulin responses.</li>
+            <li><strong>Leverage technology:</strong> Use apps and tools that can help identify patterns in your glucose responses.</li>
           </ol>
 
-          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">The Role of Technology in Insulin Optimization</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">The Role of Technology in Insulin Management</h2>
           <p class="leading-relaxed mb-6">
-            Modern diabetes technology has made insulin management more precise than ever. <a href="cgm-vs-finger-sticks.html" class="text-pink-600 hover:underline">Continuous glucose monitors</a> provide real-time feedback on how your insulin doses are working. Insulin pumps allow for precise basal rate adjustments and extended boluses for complex meals.
+            Modern diabetes technology has made insulin management more precise than ever. <a href="cgm-vs-finger-sticks.html" class="text-emerald-600 hover:underline">Continuous glucose monitors</a> provide real-time feedback on how your insulin is working. Insulin pumps allow for precise basal rate adjustments and extended boluses for complex meals.
           </p>
           <p class="leading-relaxed mb-6">
-            Smart diabetes management platforms like <a href="https://sugarlytics.com" class="text-pink-600 hover:underline font-semibold">Sugarlytics</a> take this further by analyzing your data to identify your unique insulin response patterns. The app learns how specific foods affect your glucose and suggests personalized insulin doses based on your history, not generic formulas. This personalized approach can help you achieve better control with fewer highs and lows.
+            Smart diabetes management platforms like <a href="https://sugarlytics.com" class="text-emerald-600 hover:underline font-semibold">Sugarlytics</a> take this further by analyzing your data to identify your unique glucose response patterns. The app learns how specific foods affect your glucose, helping you understand your body's unique responses.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Common Insulin Mistakes to Avoid</h2>
@@ -268,7 +256,7 @@
 
           <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Conclusion</h2>
           <p class="leading-relaxed mb-6">
-            Mastering insulin therapy is one of the most important skills for managing Type 1 diabetes. While the learning curve can feel overwhelming initially, understanding the different types of insulin, when to take them, and how to calculate optimal doses will dramatically improve your blood sugar control and quality of life.
+            Mastering insulin therapy is one of the most important skills for managing Type 1 diabetes. While the learning curve can feel overwhelming initially, understanding the different types of insulin, when to take them, and how they work will dramatically improve your blood sugar control and quality of life.
           </p>
           <p class="leading-relaxed mb-6">
             Remember that diabetes management is highly individual. What works perfectly for someone else may not work for you. Pay attention to your own patterns, work closely with your healthcare team, and don't be afraid to experiment (safely) to find what gives you the best results.
@@ -278,12 +266,12 @@
           </p>
 
           <!-- Call to Action -->
-          <div class="mt-12 p-6 bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl border-2 border-pink-200">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Optimize Your Insulin Dosing with Smart Analytics</h3>
+          <div class="mt-12 p-6 bg-emerald-50 rounded-xl border border-emerald-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Understand Your Patterns</h3>
             <p class="text-gray-700 mb-4">
-              Ready to move beyond generic formulas? Sugarlytics analyzes your personal data to identify your unique insulin response patterns, helping you dose more accurately for better control.
+              Ready to see how different foods and activities affect your glucose? Sugarlytics reveals your unique patterns so you can make smarter choices.
             </p>
-            <a href="https://sugarlytics.com/#hero" class="inline-block px-6 py-3 rounded-lg font-semibold text-white gradient-bg hover:shadow-lg transition">
+            <a href="https://sugarlytics.com/#waitlist-form" class="inline-block px-6 py-3 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition">
               Join the Waitlist
             </a>
           </div>
@@ -307,7 +295,7 @@
 
       <!-- Back to Blog -->
       <div class="max-w-4xl mx-auto mt-8 text-center">
-        <a href="index.html" class="text-pink-600 hover:text-pink-700 font-semibold">
+        <a href="index.html" class="text-emerald-600 hover:text-emerald-700 font-semibold">
           ← Back to All Blog Posts
         </a>
       </div>

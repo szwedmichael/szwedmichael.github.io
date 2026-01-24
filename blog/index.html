@@ -7,26 +7,30 @@
     <meta name="description" content="Educational articles about blood sugar, diabetes management, and glucose patterns." />
     <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .gradient-text {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                50: '#F0FDF4',
+                500: '#10B981',
+                600: '#059669',
+              }
+            }
+          }
+        }
       }
-      .gradient-bg {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-      }
-    </style>
+    </script>
   </head>
   <body class="bg-white text-gray-900 min-h-screen">
     <!-- Nav -->
     <nav class="px-6 py-6 flex items-center justify-between max-w-5xl mx-auto">
       <a href="../index.html" class="flex items-center space-x-2">
         <img src="../assets/logo.png" alt="Sugarlytics" class="w-10 h-10" />
-        <span class="text-xl font-bold gradient-text">Sugarlytics</span>
+        <span class="text-xl font-bold text-gray-900">Sugarlytics</span>
       </a>
-      <a href="../index.html#waitlist-form" class="px-5 py-2 rounded-full font-medium text-white gradient-bg hover:opacity-90 transition text-sm">
+      <a href="../index.html#waitlist-form" class="px-5 py-2 rounded-xl font-medium text-white bg-emerald-500 hover:bg-emerald-600 transition text-sm">
         Join Waitlist
       </a>
     </nav>
@@ -47,41 +51,41 @@
       <div class="space-y-8">
         <article class="border-b border-gray-100 pb-8">
           <a href="understanding-blood-sugar-guide.html" class="block group">
-            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Understanding Blood Sugar: A Complete Guide</h2>
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-emerald-600 transition">Understanding Blood Sugar: A Complete Guide</h2>
             <p class="text-gray-600 mb-3">Learn about blood glucose levels, what affects them, and how they work in Type 1 diabetes.</p>
-            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+            <span class="text-emerald-600 font-medium text-sm">Read article &rarr;</span>
           </a>
         </article>
 
         <article class="border-b border-gray-100 pb-8">
           <a href="insulin-101-types-timing-optimization.html" class="block group">
-            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Insulin 101: Types, Timing, and Optimization</h2>
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-emerald-600 transition">Insulin 101: Types, Timing, and Optimization</h2>
             <p class="text-gray-600 mb-3">An overview of different insulin types, how they work, and general concepts about timing.</p>
-            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+            <span class="text-emerald-600 font-medium text-sm">Read article &rarr;</span>
           </a>
         </article>
 
         <article class="border-b border-gray-100 pb-8">
           <a href="food-blood-sugar-glycemic-index.html" class="block group">
-            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">How Food Affects Blood Sugar: The Glycemic Index</h2>
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-emerald-600 transition">How Food Affects Blood Sugar: The Glycemic Index</h2>
             <p class="text-gray-600 mb-3">Understanding how different foods can impact glucose levels and the concept of glycemic index.</p>
-            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+            <span class="text-emerald-600 font-medium text-sm">Read article &rarr;</span>
           </a>
         </article>
 
         <article class="border-b border-gray-100 pb-8">
           <a href="exercise-blood-sugar-diabetic-guide.html" class="block group">
-            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Exercise and Blood Sugar: What to Know</h2>
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-emerald-600 transition">Exercise and Blood Sugar: What to Know</h2>
             <p class="text-gray-600 mb-3">How physical activity can affect glucose levels and general considerations for staying active.</p>
-            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+            <span class="text-emerald-600 font-medium text-sm">Read article &rarr;</span>
           </a>
         </article>
 
         <article class="pb-8">
           <a href="cgm-vs-finger-sticks.html" class="block group">
-            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">CGM vs Finger Sticks: Comparing Glucose Monitoring</h2>
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-emerald-600 transition">CGM vs Finger Sticks: Comparing Glucose Monitoring</h2>
             <p class="text-gray-600 mb-3">A comparison of continuous glucose monitors and traditional finger stick testing.</p>
-            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+            <span class="text-emerald-600 font-medium text-sm">Read article &rarr;</span>
           </a>
         </article>
       </div>

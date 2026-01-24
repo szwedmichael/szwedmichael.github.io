@@ -7,17 +7,22 @@
     <meta name="description" content="Stop guessing. Start understanding. Sugarlytics shows you exactly how meals impact your glucose levels with personalized pattern analysis." />
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .gradient-text {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                50: '#F0FDF4',
+                100: '#DCFCE7',
+                500: '#10B981',
+                600: '#059669',
+              }
+            }
+          }
+        }
       }
-      .gradient-bg {
-        background: linear-gradient(135deg, #f2709c, #ff9472);
-      }
-    </style>
+    </script>
   </head>
   <body class="bg-white text-gray-900">
     <!-- Hero -->
@@ -26,7 +31,7 @@
       <nav class="px-6 py-6 flex items-center justify-between max-w-5xl mx-auto w-full">
         <a href="#" class="flex items-center space-x-2">
           <img src="./assets/logo.png" alt="Sugarlytics" class="w-10 h-10" />
-          <span class="text-xl font-bold gradient-text">Sugarlytics</span>
+          <span class="text-xl font-bold text-gray-900">Sugarlytics</span>
         </a>
         <div class="hidden md:flex items-center space-x-8 text-sm text-gray-600">
           <a href="#features" class="hover:text-gray-900">Features</a>
@@ -39,7 +44,7 @@
       <div class="flex-1 flex items-center justify-center px-6 pb-20">
         <div class="max-w-3xl text-center">
           <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            See how food <span class="gradient-text">really</span> affects you
+            See how food <span class="text-emerald-500">really</span> affects you
           </h1>
           <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
             Stop guessing. Sugarlytics reveals your unique glucose patterns so you can make smarter choices.
@@ -52,11 +57,11 @@
               name="email"
               required
               placeholder="Enter your email"
-              class="flex-1 px-5 py-4 rounded-full border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none text-center sm:text-left"
+              class="flex-1 px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none text-center sm:text-left"
             />
             <button
               type="submit"
-              class="px-8 py-4 rounded-full font-semibold text-white gradient-bg hover:opacity-90 transition whitespace-nowrap"
+              class="px-8 py-4 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition whitespace-nowrap"
             >
               Get Early Access
             </button>
@@ -83,13 +88,13 @@
     <section id="features" class="py-24 px-6 bg-gray-50">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-          Diabetes management, <span class="gradient-text">simplified</span>
+          Diabetes management, <span class="text-emerald-500">simplified</span>
         </h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center p-6">
-            <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
@@ -98,8 +103,8 @@
           </div>
 
           <div class="text-center p-6">
-            <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -108,8 +113,8 @@
           </div>
 
           <div class="text-center p-6">
-            <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -144,7 +149,7 @@
                 I was diagnosed with Type 1 diabetes in my early twenties. After years of spreadsheets, manual calculations, and never-ending guesswork, I realized the tools we have weren't learning from our actual data.
               </p>
               <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                Standard carb ratios don't account for the fact that pizza affects me differently than pasta. That my morning insulin needs differ from evening. That yesterday's workout changes everything today.
+                Standard approaches don't account for the fact that pizza affects me differently than pasta. That my morning glucose patterns differ from evening. That yesterday's workout changes everything today.
               </p>
               <p class="text-lg text-gray-700 leading-relaxed">
                 So we built Sugarlytics. An app that learns your patterns and helps you see the real impact of your choices on your glucose.
@@ -159,7 +164,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-24 px-6 gradient-bg text-white">
+    <section class="py-24 px-6 bg-emerald-500 text-white">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to understand your patterns?</h2>
         <p class="text-xl opacity-90 mb-10">Join the waitlist and be first to get access.</p>
@@ -170,11 +175,11 @@
             name="email"
             required
             placeholder="your@email.com"
-            class="flex-1 px-5 py-4 rounded-full text-gray-900 focus:outline-none text-center sm:text-left"
+            class="flex-1 px-5 py-4 rounded-xl text-gray-900 focus:outline-none text-center sm:text-left"
           />
           <button
             type="submit"
-            class="px-8 py-4 bg-white text-pink-600 rounded-full font-semibold hover:bg-gray-100 transition whitespace-nowrap"
+            class="px-8 py-4 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-100 transition whitespace-nowrap"
           >
             Join Waitlist
           </button>
@@ -214,7 +219,7 @@
         <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm">
           <p class="mb-2">&copy; 2025 Sugarlytics LLC</p>
           <p class="text-xs text-gray-500">
-            Sugarlytics is a wellness tool for educational purposes only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult your healthcare provider.
+            Sugarlytics is a wellness tool for informational purposes only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult your healthcare provider.
           </p>
         </div>
       </div>
@@ -264,7 +269,7 @@
             .then((response) => response.json())
             .then((data) => {
               if (data.result === 'success') {
-                formMessage.style.color = '#22c55e';
+                formMessage.style.color = '#10B981';
                 formMessage.textContent = "You're on the list! We'll be in touch.";
                 form.reset();
                 getWaitlistCount();
