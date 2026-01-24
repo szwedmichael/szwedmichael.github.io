@@ -3,49 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sugarlytics Blog</title>
-    <meta name="description" content="Read the latest posts from the Sugarlytics team." />
+    <title>Blog | Sugarlytics</title>
+    <meta name="description" content="Educational articles about blood sugar, diabetes management, and glucose patterns." />
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-text {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #f2709c, #ff9472);
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-    <header class="px-6 py-4">
-      <nav class="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="../index.html" class="flex items-center space-x-3">
-          <img src="../assets/logo.png" class="w-10 h-10" alt="Sugarlytics" />
-          <span class="text-2xl font-bold" style="background: linear-gradient(135deg, #f2709c, #ff9472); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sugarlytics</span>
-        </a>
-      </nav>
-    </header>
-    <main class="px-6 py-16">
-      <section class="max-w-6xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">All Blog Posts</h1>
-        <div id="all-posts" class="grid md:grid-cols-3 gap-6"></div>
-      </section>
-    </main>
-    <script>
-      fetch('../assets/blog/posts.json', { cache: 'no-cache' })
-        .then(r => r.ok ? r.json() : [])
-        .then(posts => {
-          if (!Array.isArray(posts)) return
-          posts.sort((a,b) => new Date(b.date) - new Date(a.date))
-          const container = document.getElementById('all-posts')
-          container.innerHTML = ''
-          posts.forEach(p => {
-            const card = document.createElement('article')
-            card.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'
-            card.innerHTML = `
-              ${p.thumbnail ? `<img src="../${p.thumbnail}" alt="${p.title}" class="w-full h-40 object-cover" />` : ''}
-              <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-2">${p.title}</h2>
-                <p class="text-gray-600 mb-4">${p.snippet}</p>
-                <a class="text-pink-600 font-medium hover:underline" href="../${p.url}">Read More →</a>
-              </div>
-            `
-            container.appendChild(card)
-          })
-        })
-        .catch(() => {})
-    </script>
-  </body>
-  </html>
+  <body class="bg-white text-gray-900 min-h-screen">
+    <!-- Nav -->
+    <nav class="px-6 py-6 flex items-center justify-between max-w-5xl mx-auto">
+      <a href="../index.html" class="flex items-center space-x-2">
+        <img src="../assets/logo.png" alt="Sugarlytics" class="w-10 h-10" />
+        <span class="text-xl font-bold gradient-text">Sugarlytics</span>
+      </a>
+      <a href="../index.html#waitlist-form" class="px-5 py-2 rounded-full font-medium text-white gradient-bg hover:opacity-90 transition text-sm">
+        Join Waitlist
+      </a>
+    </nav>
 
+    <!-- Content -->
+    <main class="px-6 py-12 max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
+      <p class="text-xl text-gray-600 mb-12">Educational articles about blood sugar and glucose patterns.</p>
+
+      <!-- Disclaimer -->
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-12">
+        <p class="text-sm text-amber-800">
+          <strong>Educational Content:</strong> These articles are for informational purposes only and do not constitute medical advice. Always consult your healthcare provider for guidance specific to your situation.
+        </p>
+      </div>
+
+      <!-- Articles -->
+      <div class="space-y-8">
+        <article class="border-b border-gray-100 pb-8">
+          <a href="understanding-blood-sugar-guide.html" class="block group">
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Understanding Blood Sugar: A Complete Guide</h2>
+            <p class="text-gray-600 mb-3">Learn about blood glucose levels, what affects them, and how they work in Type 1 diabetes.</p>
+            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+          </a>
+        </article>
+
+        <article class="border-b border-gray-100 pb-8">
+          <a href="insulin-101-types-timing-optimization.html" class="block group">
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Insulin 101: Types, Timing, and Optimization</h2>
+            <p class="text-gray-600 mb-3">An overview of different insulin types, how they work, and general concepts about timing.</p>
+            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+          </a>
+        </article>
+
+        <article class="border-b border-gray-100 pb-8">
+          <a href="food-blood-sugar-glycemic-index.html" class="block group">
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">How Food Affects Blood Sugar: The Glycemic Index</h2>
+            <p class="text-gray-600 mb-3">Understanding how different foods can impact glucose levels and the concept of glycemic index.</p>
+            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+          </a>
+        </article>
+
+        <article class="border-b border-gray-100 pb-8">
+          <a href="exercise-blood-sugar-diabetic-guide.html" class="block group">
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">Exercise and Blood Sugar: What to Know</h2>
+            <p class="text-gray-600 mb-3">How physical activity can affect glucose levels and general considerations for staying active.</p>
+            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+          </a>
+        </article>
+
+        <article class="pb-8">
+          <a href="cgm-vs-finger-sticks.html" class="block group">
+            <h2 class="text-2xl font-semibold mb-2 group-hover:text-pink-600 transition">CGM vs Finger Sticks: Comparing Glucose Monitoring</h2>
+            <p class="text-gray-600 mb-3">A comparison of continuous glucose monitors and traditional finger stick testing.</p>
+            <span class="text-pink-600 font-medium text-sm">Read article &rarr;</span>
+          </a>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-gray-50 mt-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="flex items-center justify-center space-x-2 mb-4">
+          <img src="../assets/logo.png" alt="Sugarlytics" class="w-8 h-8" />
+          <span class="font-semibold">Sugarlytics</span>
+        </div>
+        <p class="text-sm text-gray-500 mb-2">
+          &copy; 2025 Sugarlytics LLC
+        </p>
+        <p class="text-xs text-gray-400">
+          This content is for educational purposes only and is not medical advice. Always consult your healthcare provider.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
