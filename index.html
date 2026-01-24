@@ -72,12 +72,12 @@
           </p>
 
           <!-- App Store Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <a href="#" class="transition-transform hover:scale-105">
-              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on App Store" class="h-14" />
+          <div id="app-store-buttons" class="flex flex-row gap-4 justify-center items-center mt-10">
+            <a id="ios-button" href="#" class="transition-transform hover:scale-105">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on App Store" class="h-12 sm:h-14" />
             </a>
-            <a href="#" class="transition-transform hover:scale-105">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-14" />
+            <a id="android-button" href="#" class="transition-transform hover:scale-105">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-12 sm:h-14" />
             </a>
           </div>
         </div>
@@ -155,7 +155,7 @@
                 So we built Sugarlytics. An app that learns your patterns and helps you see the real impact of your choices on your glucose.
               </p>
               <p class="mt-6 font-medium text-gray-900">
-                Michael Szwed <span class="text-gray-500 font-normal">Co-founder, living with T1D</span>
+                Michael Szwed <span class="text-gray-500 font-normal">Founder, <span id="age"></span> years old, living with T1D for <span id="diabetes-years"></span> years</span>
               </p>
             </div>
           </div>
@@ -292,6 +292,59 @@
       if (document.getElementById('waitlist-form')) handleFormSubmit('waitlist-form', 'formMessage');
       if (document.getElementById('waitlist-form-2')) handleFormSubmit('waitlist-form-2', 'formMessage2');
       if (document.getElementById('waitlist-count')) getWaitlistCount();
+
+      // Platform-specific app store buttons
+      function detectPlatform() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const iosButton = document.getElementById('ios-button');
+        const androidButton = document.getElementById('android-button');
+
+        if (!iosButton || !androidButton) return;
+
+        // Check if mobile device
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+
+        if (isMobile) {
+          // Show only relevant store button on mobile
+          if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            androidButton.style.display = 'none';
+          } else if (/android/i.test(userAgent)) {
+            iosButton.style.display = 'none';
+          }
+        }
+        // On desktop, show both buttons
+      }
+
+      detectPlatform();
+
+      // Calculate dynamic age and years with diabetes
+      function calculateDynamicInfo() {
+        const birthday = new Date(2003, 5, 1); // June 1, 2003 (month is 0-indexed)
+        const diagnosisDate = new Date(2017, 11, 27); // December 27, 2017
+        const today = new Date();
+
+        // Calculate age
+        let age = today.getFullYear() - birthday.getFullYear();
+        const monthDiff = today.getMonth() - birthday.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
+          age--;
+        }
+
+        // Calculate years with diabetes
+        let diabetesYears = today.getFullYear() - diagnosisDate.getFullYear();
+        const diagnosisMonthDiff = today.getMonth() - diagnosisDate.getMonth();
+        if (diagnosisMonthDiff < 0 || (diagnosisMonthDiff === 0 && today.getDate() < diagnosisDate.getDate())) {
+          diabetesYears--;
+        }
+
+        // Update the DOM
+        const ageEl = document.getElementById('age');
+        const diabetesYearsEl = document.getElementById('diabetes-years');
+        if (ageEl) ageEl.textContent = age;
+        if (diabetesYearsEl) diabetesYearsEl.textContent = diabetesYears;
+      }
+
+      calculateDynamicInfo();
     </script>
   </body>
 </html>
