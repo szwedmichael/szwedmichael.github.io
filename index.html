@@ -71,15 +71,13 @@
             <span id="waitlist-count" class="font-medium">500+</span> people on the waitlist
           </p>
 
-          <!-- App Store Buttons -->
+          <!-- App Store Button -->
           <div id="app-store-buttons" class="flex flex-row gap-4 justify-center items-center mt-10">
             <a id="ios-button" href="#" class="transition-transform hover:scale-105">
               <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on App Store" class="h-12 sm:h-14" />
             </a>
-            <a id="android-button" href="#" class="transition-transform hover:scale-105">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-12 sm:h-14" />
-            </a>
           </div>
+          <p class="text-xs text-gray-400 mt-3">iOS only · Dexcom CGM required · US only</p>
         </div>
       </div>
     </section>
@@ -217,7 +215,13 @@
         </div>
 
         <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm">
-          <p class="mb-2">&copy; 2025 Sugarlytics LLC</p>
+          <p class="mb-2">&copy; 2026 Sugarlytics LLC</p>
+          <p class="text-xs text-gray-500 mb-2">
+            Building the personalized diabetes data platform of the future.
+          </p>
+          <p class="text-xs text-gray-500 mb-2">
+            Currently available on iOS in the United States only. Dexcom CGM required.
+          </p>
           <p class="text-xs text-gray-500">
             Sugarlytics is a wellness tool for informational purposes only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult your healthcare provider.
           </p>
@@ -293,29 +297,6 @@
       if (document.getElementById('waitlist-form-2')) handleFormSubmit('waitlist-form-2', 'formMessage2');
       if (document.getElementById('waitlist-count')) getWaitlistCount();
 
-      // Platform-specific app store buttons
-      function detectPlatform() {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const iosButton = document.getElementById('ios-button');
-        const androidButton = document.getElementById('android-button');
-
-        if (!iosButton || !androidButton) return;
-
-        // Check if mobile device
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-
-        if (isMobile) {
-          // Show only relevant store button on mobile
-          if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            androidButton.style.display = 'none';
-          } else if (/android/i.test(userAgent)) {
-            iosButton.style.display = 'none';
-          }
-        }
-        // On desktop, show both buttons
-      }
-
-      detectPlatform();
 
       // Calculate dynamic age and years with diabetes
       function calculateDynamicInfo() {

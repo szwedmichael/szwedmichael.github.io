@@ -13,6 +13,10 @@ permalink: /terms
 
 By downloading, installing, or using Sugarlytics ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.
 
+### 1.1 Geographic and Platform Availability
+
+Sugarlytics is currently available **only on iOS devices in the United States**. The App requires a **Dexcom continuous glucose monitor (CGM)** for core functionality. By using the App, you represent that you are located in the United States and have access to a compatible Dexcom CGM device. We do not offer or support the App on Android or outside of the United States at this time.
+
 ## 2. Description of Service
 
 Sugarlytics is a **wellness and lifestyle tracking tool** designed to help users log meals, track glucose data from connected CGM devices, and visualize historical patterns.

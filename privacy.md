@@ -15,6 +15,10 @@ Sugarlytics ("we," "our," or "us") is committed to protecting your privacy. This
 
 Please read this Privacy Policy carefully. By using the App, you agree to the collection and use of information in accordance with this policy.
 
+### 1.1 Geographic and Platform Scope
+
+Sugarlytics is currently available **only on iOS devices in the United States**. The App requires a **Dexcom continuous glucose monitor (CGM)** for core functionality. This Privacy Policy applies to users located in the United States. We do not offer or support the App on Android or outside of the United States at this time.
+
 ## 2. Information We Collect
 
 ### 2.1 Health Data
@@ -77,7 +81,7 @@ We share your data with the following third parties:
 **Their policy:** [dexcom.com/privacy](https://www.dexcom.com/privacy)
 
 When you connect your Dexcom account:
-- We receive your glucose readings with a minimum 1-hour delay
+- We receive your glucose readings in real-time via the Dexcom Share API
 - We store glucose data in our database for historical analysis
 - We do not share your Dexcom data with other users or third parties
 
