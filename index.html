@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sugarlytics - See How Food Really Affects Your Blood Sugar</title>
-    <meta name="description" content="Stop guessing. Start understanding. Sugarlytics shows you exactly how meals impact your glucose levels with personalized pattern analysis." />
+    <title>Sugarlytics - Your Glucose, Decoded</title>
+    <meta name="description" content="Sugarlytics connects to your Dexcom CGM and uses AI to show you exactly how meals, exercise, and daily habits affect your blood sugar. Now in beta on iOS." />
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,42 +43,26 @@
       <!-- Hero Content -->
       <div class="flex-1 flex items-center justify-center px-6 pb-20">
         <div class="max-w-3xl text-center">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-600 text-sm font-medium mb-6">
+            Now in beta on iOS
+          </div>
           <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            See how food <span class="text-emerald-500">really</span> affects you
+            Your glucose, <span class="text-emerald-500">decoded</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Stop guessing. Sugarlytics reveals your unique glucose patterns so you can make smarter choices.
+            Sugarlytics connects to your Dexcom CGM and uses AI to reveal how meals, exercise, and daily habits actually affect your blood sugar.
           </p>
 
-          <!-- Waitlist Form -->
-          <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6">
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Enter your email"
-              class="flex-1 px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none text-center sm:text-left"
-            />
-            <button
-              type="submit"
-              class="px-8 py-4 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition whitespace-nowrap"
-            >
-              Get Early Access
-            </button>
-          </form>
-          <p id="formMessage" class="text-sm mb-4"></p>
-          <p class="text-sm text-gray-500">
-            <span id="waitlist-count" class="font-medium">500+</span> people on the waitlist
+          <!-- Beta CTA -->
+          <a
+            href="https://testflight.apple.com/join/gAJUSkKs"
+            class="inline-block px-10 py-4 rounded-xl font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition text-lg"
+          >
+            Become a Beta Tester
+          </a>
+          <p class="text-sm text-gray-500 mt-4">
+            Free via TestFlight · iOS only · Dexcom CGM required
           </p>
-
-          <!-- App Store Button -->
-          <!-- TODO: Update href with actual App Store URL when available (e.g., https://apps.apple.com/app/sugarlytics/id123456789) -->
-          <div id="app-store-buttons" class="flex flex-row gap-4 justify-center items-center mt-10">
-            <a id="ios-button" href="https://apps.apple.com/app/sugarlytics" class="transition-transform hover:scale-105">
-              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on App Store" class="h-12 sm:h-14" />
-            </a>
-          </div>
-          <p class="text-xs text-gray-400 mt-3">iOS only · Dexcom CGM required · US only</p>
         </div>
       </div>
     </section>
@@ -87,18 +71,19 @@
     <section id="features" class="py-24 px-6 bg-gray-50">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-          Diabetes management, <span class="text-emerald-500">simplified</span>
+          Everything you need, <span class="text-emerald-500">nothing you don't</span>
         </h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center p-6">
             <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Pattern Recognition</h3>
-            <p class="text-gray-600">Discover how specific foods affect your glucose over time. Pizza? Pasta? See the real data.</p>
+            <h3 class="text-xl font-semibold mb-3">Snap &amp; Log</h3>
+            <p class="text-gray-600">Take a photo of your meal. AI identifies it and estimates carbs instantly -- no manual entry needed.</p>
           </div>
 
           <div class="text-center p-6">
@@ -107,29 +92,46 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Instant Logging</h3>
-            <p class="text-gray-600">Log meals in seconds. AI estimates carbs so you spend less time tracking.</p>
+            <h3 class="text-xl font-semibold mb-3">Real-Time CGM Sync</h3>
+            <p class="text-gray-600">Connects directly to your Dexcom CGM. See your glucose data alongside meals, exercise, and events in one timeline.</p>
           </div>
 
           <div class="text-center p-6">
             <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Personal Insights</h3>
-            <p class="text-gray-600">Get insights tailored to your body. Not generic advice. Your patterns, your data.</p>
+            <h3 class="text-xl font-semibold mb-3">Glucose Insights</h3>
+            <p class="text-gray-600">Tap any meal to see exactly how it moved your glucose. Discover patterns your logbook never showed you.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Social Proof -->
+    <!-- How It Works -->
     <section class="py-20 px-6">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">
-          "Built by someone who actually lives with Type 1 diabetes and got tired of the guesswork."
-        </p>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          How it works
+        </h2>
+        <div class="grid md:grid-cols-3 gap-12 text-center">
+          <div>
+            <div class="text-4xl font-bold text-emerald-500 mb-4">1</div>
+            <h3 class="text-lg font-semibold mb-2">Connect your Dexcom</h3>
+            <p class="text-gray-600">Link your CGM in seconds. Your glucose data syncs automatically in the background.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-emerald-500 mb-4">2</div>
+            <h3 class="text-lg font-semibold mb-2">Log what matters</h3>
+            <p class="text-gray-600">Snap a photo of your meal, track exercise, stress, medicine -- all in a few taps.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-emerald-500 mb-4">3</div>
+            <h3 class="text-lg font-semibold mb-2">See the impact</h3>
+            <p class="text-gray-600">View your glucose response overlaid on every event. Understand your body like never before.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -145,13 +147,13 @@
             <img src="assets/images/people/mike.jpg" onerror="this.onerror=null;this.style.display='none';" alt="Michael Szwed" class="w-24 h-24 rounded-2xl object-cover mx-auto md:mx-0" />
             <div>
               <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                I was diagnosed with Type 1 diabetes in my early teens. After years of spreadsheets, manual calculations, and never-ending guesswork, I realized the tools we have weren't learning from our actual data.
+                I was diagnosed with Type 1 diabetes in my early teens. After years of spreadsheets, manual carb counting, and constant guesswork, I realized the tools available to us weren't built to learn from our actual data.
               </p>
               <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                Standard approaches don't account for the fact that pizza affects me differently than pasta. That my morning glucose patterns differ from evening. That yesterday's workout changes everything today.
+                Every body is different. Pizza spikes me for hours, but pasta barely moves the needle. A morning coffee hits differently than an afternoon one. Yesterday's run changes how I respond to everything today. None of my tools captured that.
               </p>
               <p class="text-lg text-gray-700 leading-relaxed">
-                So we built Sugarlytics. An app that learns your patterns and helps you see the real impact of your choices on your glucose.
+                So I built Sugarlytics -- an app that connects to your CGM and shows you, meal by meal, exactly what's happening. No more guessing. Just your data, your patterns, your answers.
               </p>
               <p class="mt-6 font-medium text-gray-900">
                 Michael Szwed <span class="text-gray-500 font-normal">Founder, <span id="age"></span> years old, living with T1D for <span id="diabetes-years"></span> years</span>
@@ -165,25 +167,16 @@
     <!-- CTA -->
     <section class="py-24 px-6 bg-emerald-500 text-white">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to understand your patterns?</h2>
-        <p class="text-xl opacity-90 mb-10">Join the waitlist and be first to get access.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to see what your glucose is really telling you?</h2>
+        <p class="text-xl opacity-90 mb-10">Join the beta and help shape the future of diabetes management.</p>
 
-        <form id="waitlist-form-2" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            class="flex-1 px-5 py-4 rounded-xl text-gray-900 focus:outline-none text-center sm:text-left"
-          />
-          <button
-            type="submit"
-            class="px-8 py-4 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-100 transition whitespace-nowrap"
-          >
-            Join Waitlist
-          </button>
-        </form>
-        <p id="formMessage2" class="text-sm mt-4"></p>
+        <a
+          href="https://testflight.apple.com/join/gAJUSkKs"
+          class="inline-block px-10 py-4 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-100 transition text-lg"
+        >
+          Become a Beta Tester
+        </a>
+        <p class="text-sm opacity-75 mt-4">Free via Apple TestFlight · Takes 30 seconds</p>
       </div>
     </section>
 
@@ -218,10 +211,10 @@
         <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm">
           <p class="mb-2">&copy; 2026 Sugarlytics LLC</p>
           <p class="text-xs text-gray-500 mb-2">
-            Building the personalized diabetes data platform of the future.
+            See how food, exercise, and life really affect your glucose.
           </p>
           <p class="text-xs text-gray-500 mb-2">
-            Currently available on iOS in the United States only. Dexcom CGM required.
+            Currently in beta on iOS. Dexcom CGM required.
           </p>
           <p class="text-xs text-gray-500">
             Sugarlytics is a wellness tool for informational purposes only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult your healthcare provider.
@@ -231,95 +224,24 @@
     </footer>
 
     <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzWhCB3hqFTHmXY34lkONjVpqGQ_T0IsyEPkxNG_0lVKE6jB5TUmNCYXxBZrY5mhM_T0Q/exec';
-
-      async function getWaitlistCount() {
-        try {
-          const response = await fetch(scriptURL);
-          const data = await response.json();
-          const el = document.getElementById('waitlist-count');
-          if (el && data.count !== undefined) {
-            el.textContent = data.count.toLocaleString();
-          }
-        } catch (error) {
-          console.error('Error fetching waitlist count:', error);
-        }
-      }
-
-      function handleFormSubmit(formId, messageId) {
-        const form = document.getElementById(formId);
-        const formMessage = document.getElementById(messageId);
-
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
-          formMessage.textContent = '';
-          const email = form.email.value.trim();
-
-          if (!email) {
-            formMessage.style.color = '#ef4444';
-            formMessage.textContent = 'Please enter your email address.';
-            return;
-          }
-
-          const submitBtn = form.querySelector('button[type="submit"]');
-          const originalText = submitBtn.textContent;
-          submitBtn.textContent = 'Joining...';
-          submitBtn.disabled = true;
-
-          fetch(scriptURL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `email=${encodeURIComponent(email)}`,
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.result === 'success') {
-                formMessage.style.color = '#10B981';
-                formMessage.textContent = "You're on the list! We'll be in touch.";
-                form.reset();
-                getWaitlistCount();
-              } else {
-                formMessage.style.color = '#ef4444';
-                formMessage.textContent = 'Something went wrong. Please try again.';
-              }
-            })
-            .catch(() => {
-              formMessage.style.color = '#ef4444';
-              formMessage.textContent = 'Network error. Please try again.';
-            })
-            .finally(() => {
-              submitBtn.textContent = originalText;
-              submitBtn.disabled = false;
-            });
-        });
-      }
-
-      if (document.getElementById('waitlist-form')) handleFormSubmit('waitlist-form', 'formMessage');
-      if (document.getElementById('waitlist-form-2')) handleFormSubmit('waitlist-form-2', 'formMessage2');
-      if (document.getElementById('waitlist-count')) getWaitlistCount();
-
-
       // Calculate dynamic age and years with diabetes
       function calculateDynamicInfo() {
         const birthday = new Date(2003, 5, 1); // June 1, 2003 (month is 0-indexed)
         const diagnosisDate = new Date(2017, 11, 27); // December 27, 2017
         const today = new Date();
 
-        // Calculate age
         let age = today.getFullYear() - birthday.getFullYear();
         const monthDiff = today.getMonth() - birthday.getMonth();
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
           age--;
         }
 
-        // Calculate years with diabetes
         let diabetesYears = today.getFullYear() - diagnosisDate.getFullYear();
         const diagnosisMonthDiff = today.getMonth() - diagnosisDate.getMonth();
         if (diagnosisMonthDiff < 0 || (diagnosisMonthDiff === 0 && today.getDate() < diagnosisDate.getDate())) {
           diabetesYears--;
         }
 
-        // Update the DOM
         const ageEl = document.getElementById('age');
         const diabetesYearsEl = document.getElementById('diabetes-years');
         if (ageEl) ageEl.textContent = age;
