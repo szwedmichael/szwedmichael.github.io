@@ -1,0 +1,389 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.app { padding: 1.5rem 1rem; max-width: 540px; margin: 0 auto; font-family: var(--font-sans); }
+.intro { text-align: center; margin-bottom: 1.5rem; }
+.intro h2 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.intro p { font-size: 13px; color: var(--color-text-secondary); }
+.deck-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.tab { padding: 8px 16px; border-radius: 999px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); font-size: 13px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.tab.active-wnrs { background: #8b1a1a; border-color: #8b1a1a; color: #fff; }
+.tab.active-and { background: #1a3a6b; border-color: #1a3a6b; color: #fff; }
+.tab.active-mix { background: #2d2d2d; border-color: #2d2d2d; color: #fff; }
+.card-area { min-height: 260px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.card { width: 100%; max-width: 420px; min-height: 220px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; text-align: center; }
+.card.regular { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); }
+.card.wildcard { background: #8b1a1a; }
+.card.and-card { background: #1a3a6b; }
+.card-type { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+.card.regular .card-type { color: var(--color-text-tertiary); }
+.card.wildcard .card-type, .card.and-card .card-type { color: rgba(255,255,255,0.65); }
+.card-text { font-size: 17px; font-weight: 500; line-height: 1.55; }
+.card.regular .card-text { color: var(--color-text-primary); }
+.card.wildcard .card-text, .card.and-card .card-text { color: #fff; }
+.card-level { font-size: 11px; margin-top: 1rem; opacity: 0.6; }
+.card.regular .card-level { color: var(--color-text-tertiary); }
+.card.wildcard .card-level, .card.and-card .card-level { color: rgba(255,255,255,0.65); }
+.controls { display: flex; gap: 10px; justify-content: center; margin-bottom: 1rem; }
+.btn-primary { padding: 12px 28px; color: #fff; border: none; border-radius: 999px; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+.btn-secondary { padding: 12px 20px; background: var(--color-background-primary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: 999px; font-size: 15px; cursor: pointer; }
+.stats { display: flex; gap: 8px; justify-content: center; font-size: 12px; color: var(--color-text-tertiary); }
+.stats b { color: var(--color-text-secondary); font-weight: 500; }
+</style>
+
+<div class="app">
+  <div class="intro">
+    <h2>We're not really strangers</h2>
+    <p>Choose a deck and draw a card. Be honest.</p>
+  </div>
+  <div class="deck-tabs" id="tabs"></div>
+  <div class="card-area" id="card-area">
+    <div class="card regular">
+      <div class="card-type">Ready?</div>
+      <div class="card-text">Choose a deck above and draw your first card</div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn-primary" id="btn-draw" style="background:#8b1a1a;">Draw a card</button>
+    <button class="btn-secondary" id="btn-skip">Skip</button>
+  </div>
+  <div class="stats">Drawn: <b id="drawn-count">0</b>&nbsp;&nbsp;·&nbsp;&nbsp;Remaining: <b id="remaining-count">—</b></div>
+</div>
+
+<script>
+(function() {
+  var DECKS = {
+    "Honest Dating": {
+      color: "wnrs",
+      cards: [
+        {t:"How many relationships do you think I've been in? How many times do you think I've been in love? Explain.", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"Just by looking at me, what would you think I do for a living?", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"What do you think my type is? Describe in detail.", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"What was the first thing you noticed about me when we met in person?", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"What do you think I was like in high school? Explain.", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"Write down your 3 favorite physical features of your partner and read them out loud. Both players.", w:true, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"What do you think my drink of choice is?", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"Do you think I'm still on good terms with my exes? Why or why not?", w:false, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"Write down your top 2 relationship deal breakers. Both players. Compare.", w:true, l:"Level 1 · Perception", src:"Honest Dating"},
+        {t:"When's the last time you ghosted someone and why?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What are you feeling a lot of lately?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What about me intrigued you besides my physical appearance?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Do you have any unconventional opinions when it comes to romantic relationships?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"I know I really like someone when ________.", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What do your friends know about me, if anything?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Has sex ever been a deal breaker in your past relationships? Explain.", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What part of your job energizes you the most? Leaves you the most drained?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"How has your view on love evolved over time, if at all?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"How do you define dating?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Describe your worst heartbreak. What did it teach you?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Have you ever considered an open relationship? Why or why not?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Write down your favorite song lyric off the top of your head. Compare and explain.", w:true, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Share something you typically wouldn't on a first date. Both players.", w:true, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Who in your life do you feel most yourself around? Why?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Which one of your parents' personality traits do you want to keep? Let go of?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What is something new you've learned about yourself recently?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What's the hardest part about dating you?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What's a non-negotiable in your life?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What did the people who raised you teach you about love? How has that shaped your views on love today?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Give each other tattoos with the nearest pen or marker. 30 seconds.", w:true, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What are you overthinking right now?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Write down the top 3 most important qualities in a romantic partner. Both players. Compare.", w:true, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What have you tolerated from others in the past that you no longer have space for?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What dating advice would you give your younger self?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"How emotionally available do you currently feel? Explain.", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"Think of the most underrated show streaming currently. On the count of 3, say your answers out loud. Both players.", w:true, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What has being single taught you about yourself?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What was the worst date you've ever been on and why?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What about you has felt repeatedly misunderstood by others, if anything?", w:false, l:"Level 2 · Connection", src:"Honest Dating"},
+        {t:"What song should I listen to on my way home?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"Based on what you've learned about me, what do you think I'm looking for romantically?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"On a scale of 1-10 how emotionally available do I seem? Explain.", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"What mannerisms of mine stood out the most to you, if any?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"Look through each other's social media. Pick your favorite photo. Compare and explain.", w:true, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"Write your partner a text outside of your comfort zone at the end of this date. Both players.", w:true, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"How would you describe our date in one word?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"If you were to write my dating profile bio, what would it say?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"What part of my personality isn't showcased online?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"What do you find most attractive about me that isn't physical?", w:false, l:"Level 3 · Reflection", src:"Honest Dating"},
+        {t:"Ask literally anything. Permission to go there.", w:true, l:"Level 3 · Reflection", src:"Honest Dating"}
+      ]
+    },
+    "Relationship": {
+      color: "wnrs",
+      cards: [
+        {t:"What was the first thing you noticed about me?", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"What assumption did you make about me that turned out to be false?", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"On a scale of 1-10, how open do you feel I am with you? Explain.", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"How important do you think birthdays and holidays are to me? Explain.", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"Who do you think was more nervous on our first date? Explain.", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"What do you think my perfect date night would be?", w:false, l:"Level 1 · Perception", src:"Relationship"},
+        {t:"What would a day of completely spoiling me look like?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"The hardest thing for me to reveal about myself to you was ________.", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"How does one earn your trust? Have I earned it? How can I earn more?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What did our worst argument teach you?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Write down one small way you can be better in this relationship. Both players. Compare.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What has this relationship taught you about yourself?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What are you currently working through that I don't see, if anything?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's the most romantic thing I've done for you recently?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's one small way I can be a better partner?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What song best describes our relationship?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's the most attractive thing I do without realizing it?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Do you think my job affects me positively or negatively? How does it affect us?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What have you been extra sensitive to lately?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's the best gift I've given you? Material and immaterial?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What feelings are hard for you to communicate to me? How can I make it easier?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What about you feels hardest to love?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What immediately attracted you to me? What attracted you more over time?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What do you wish we did more of?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"On a scale of 1-10 write down the importance of having kids to you. Compare and explain.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Write down the top 3 things your partner does that makes you feel most loved. Both players. Compare.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What made you fall in love with me?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's the most important lesson a past relationship has taught you?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Finish the sentence: Thank you for accepting ________.", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Write a short guide of how to love your partner well. 30 seconds. Compare.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Are there any insecurities from previous relationships that you carried into this one? If so, what are they?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"How do our strengths and weaknesses complement each other?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Write a love song for your partner. 1 minute. Perform for each other.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What have I helped you appreciate about yourself?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What recent experience made you feel closer to me?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Draw one of your favorite memories from our relationship. 30 seconds. Compare.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Write down the title you would give this chapter of our relationship. Compare.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"How do I show that I love you without telling you?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"When was the last time I hurt you, perhaps unintentionally?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What fear do you think holds me back the most?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"How have you seen me grow in this relationship?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What's one small way we can improve our sex life?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Have I helped you change your mind about anything?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"Ask your partner something you've never asked them before.", w:true, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"How does our age difference, or lack thereof, affect us? If at all?", w:false, l:"Level 2 · Connection", src:"Relationship"},
+        {t:"What answer of mine surprised you the most throughout this game, if any?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"What don't I give myself enough credit for?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"Is there anything you still don't know about me that you wish you did?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"What about our relationship are you proudest of?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"Write down the top 3 things you're most grateful for in your partner. 30 seconds. Compare.", w:true, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"What did this conversation teach you about our relationship? What did it teach you about yourself?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"What goal would feel best for you to accomplish this year? How can I support you in that?", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"Thank you for helping me realize ________ about myself.", w:false, l:"Level 3 · Reflection", src:"Relationship"},
+        {t:"Write down your intention for our relationship. Compare.", w:true, l:"Level 3 · Reflection", src:"Relationship"}
+      ]
+    },
+    "{THE AND}": {
+      color: "and",
+      cards: [
+        {t:"What's the pain in me you'd most like to heal?", w:false, l:"", src:"{THE AND}"},
+        {t:"What are you hesitant to tell me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think is the next step in our relationship?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think I'm learning from you?", w:false, l:"", src:"{THE AND}"},
+        {t:"Why do you love me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What is preventing me from becoming the person I want to be?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's one thing you never want me to forget?", w:false, l:"", src:"{THE AND}"},
+        {t:"When was the last time you felt truly seen by me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you've never told anyone but feel ready to share with me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a fear of yours that I don't know about?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the version of yourself you most want to become?", w:false, l:"", src:"{THE AND}"},
+        {t:"How have I changed since we first met?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you've forgiven me for but never mentioned?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think we need more of in our relationship?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a moment you felt most proud of me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the one thing I do that makes you feel the most loved?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a dream you've let go of? Would you pick it back up if you could?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you wish I understood about you better?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a part of your past that still shapes who you are today?", w:false, l:"", src:"{THE AND}"},
+        {t:"What are you most afraid of losing?", w:false, l:"", src:"{THE AND}"},
+        {t:"What does home mean to you, and do I feel like home?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you think we should talk about more?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the kindest thing I've ever done for you?", w:false, l:"", src:"{THE AND}"},
+        {t:"When do you feel the most disconnected from me? What helps you come back?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something about yourself you're still trying to accept?", w:false, l:"", src:"{THE AND}"},
+        {t:"What would you do differently if you weren't afraid of what I'd think?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think I need to hear right now but haven't asked for?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a boundary you've never told me about but wish I knew?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a memory of us that you return to often?", w:false, l:"", src:"{THE AND}"},
+        {t:"If our relationship had a turning point, what was it?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you'd want to change about the way we fight?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think is the thing I love most about myself?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you wish we'd done sooner in our relationship?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a question you've always wanted to ask me but held back?", w:false, l:"", src:"{THE AND}"},
+        {t:"How do you think we handle grief differently, and how does that affect us?", w:false, l:"", src:"{THE AND}"},
+        {t:"What does vulnerability look like for you, and how can I make it easier?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a version of our future you think about but haven't shared?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the thing about me that surprised you the most?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think I need to work on? Be honest.", w:false, l:"", src:"{THE AND}"},
+        {t:"What are you most grateful for in this relationship right now?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you've outgrown that you haven't told me about?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think love requires that we haven't fully practiced yet?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a part of yourself you hold back from me? Why?", w:false, l:"", src:"{THE AND}"},
+        {t:"When did you know this relationship was something real?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a way I could show up better for you during hard times?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you've sacrificed for this relationship that you haven't talked about?", w:false, l:"", src:"{THE AND}"},
+        {t:"What does intimacy mean to you outside of physical touch?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the conversation we keep almost having but never do?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think our relationship looks like from the outside?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's one thing you'd want to do together before we're too old to?", w:false, l:"", src:"{THE AND}"},
+        {t:"What has loving me taught you about yourself?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you're still healing from that affects how you love me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the most honest thing you could say to me right now?", w:false, l:"", src:"{THE AND}"},
+        {t:"If you could relive one moment with me, which would it be and why?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think I'm searching for that I haven't found yet?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a truth about us that we both know but haven't said out loud?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's one way you want to grow this year, and how can I support that?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a belief about love you had before me that I've changed?", w:false, l:"", src:"{THE AND}"},
+        {t:"What makes you feel safe with me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What are you still learning about how to love me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the most important thing you want me to know about who you are?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you think we're building together?", w:false, l:"", src:"{THE AND}"},
+        {t:"Where do you think we'll be in 10 years? What do you hope for?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something about our future that scares you? What excites you?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a question you hope someone asks you someday?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a version of love you had to unlearn?", w:false, l:"", src:"{THE AND}"},
+        {t:"What would you want our relationship to teach the people around us?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you need from me that you've been too afraid to ask for?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a part of yourself you've only let me see?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's one thing you want to say to me right now, no filter?", w:false, l:"", src:"{THE AND}"},
+        {t:"How do you know when you're truly happy?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the thing that keeps you up at night that you haven't shared with me?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do I do that makes you feel the most like yourself?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a story from your life you haven't told me yet?", w:false, l:"", src:"{THE AND}"},
+        {t:"What do you wish we talked about more?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you've stopped doing that you want to start again?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a way I've helped you become more yourself?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's the most important thing love has taught you?", w:false, l:"", src:"{THE AND}"},
+        {t:"What would you tell our past selves the day we met?", w:false, l:"", src:"{THE AND}"},
+        {t:"What does a perfect ordinary day look like for you?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's a word that describes where we are right now?", w:false, l:"", src:"{THE AND}"},
+        {t:"What's something you're proud of that you don't celebrate enough?", w:false, l:"", src:"{THE AND}"}
+      ]
+    }
+  };
+
+  var TAB_DEFS = [
+    { key: "Honest Dating" },
+    { key: "Relationship" },
+    { key: "{THE AND}" },
+    { key: "All Mixed", isMix: true }
+  ];
+
+  var activeDeck = "Honest Dating";
+  var queue = [];
+  var drawn = 0;
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function getAllCards() {
+    var all = [];
+    Object.keys(DECKS).forEach(function(k) {
+      DECKS[k].cards.forEach(function(c) { all.push(c); });
+    });
+    return all;
+  }
+
+  function getColor() {
+    if (activeDeck === "All Mixed") return "mix";
+    return DECKS[activeDeck].color;
+  }
+
+  function getBtnColor() {
+    var c = getColor();
+    if (c === "and") return "#1a3a6b";
+    if (c === "mix") return "#2d2d2d";
+    return "#8b1a1a";
+  }
+
+  function initDeck() {
+    var cards = activeDeck === "All Mixed" ? getAllCards() : DECKS[activeDeck].cards;
+    queue = shuffle(cards);
+    drawn = 0;
+    updateStats();
+    document.getElementById('btn-draw').style.background = getBtnColor();
+  }
+
+  function updateStats() {
+    document.getElementById('drawn-count').textContent = drawn;
+    document.getElementById('remaining-count').textContent = Math.max(0, queue.length - drawn);
+  }
+
+  function getCardClass(card) {
+    if (activeDeck === "All Mixed") {
+      if (card.src === "{THE AND}") return "and-card";
+      if (card.w) return "wildcard";
+      return "regular";
+    }
+    if (getColor() === "and") return "and-card";
+    if (card.w) return "wildcard";
+    return "regular";
+  }
+
+  function getCardLabel(card) {
+    if (activeDeck === "All Mixed") {
+      if (card.w) return "Wildcard · " + card.src;
+      return card.src;
+    }
+    if (card.w) return "Wildcard";
+    return activeDeck;
+  }
+
+  function drawCard() {
+    if (drawn >= queue.length) {
+      var cards = activeDeck === "All Mixed" ? getAllCards() : DECKS[activeDeck].cards;
+      queue = shuffle(cards);
+      drawn = 0;
+    }
+    var card = queue[drawn++];
+    updateStats();
+    renderCard(card);
+  }
+
+  function renderCard(card) {
+    var area = document.getElementById('card-area');
+    var cls = getCardClass(card);
+    var label = getCardLabel(card);
+    var levelHtml = card.l ? '<div class="card-level">' + card.l + '</div>' : '';
+    area.innerHTML = '<div class="card ' + cls + '"><div class="card-type">' + label + '</div><div class="card-text">' + card.t + '</div>' + levelHtml + '</div>';
+  }
+
+  function getTabClass(key, isMix) {
+    if (key !== activeDeck) return 'tab';
+    if (isMix) return 'tab active-mix';
+    if (key === '{THE AND}') return 'tab active-and';
+    return 'tab active-wnrs';
+  }
+
+  function selectDeck(name, isMix) {
+    activeDeck = name;
+    var tabs = document.querySelectorAll('.tab');
+    TAB_DEFS.forEach(function(def, i) {
+      tabs[i].className = getTabClass(def.key, def.isMix);
+    });
+    initDeck();
+    var color = getColor();
+    var cls = color === "and" ? "and-card" : "regular";
+    var area = document.getElementById('card-area');
+    area.innerHTML = '<div class="card ' + cls + '"><div class="card-type">' + name + '</div><div class="card-text">Press Draw a card to begin</div></div>';
+    updateStats();
+  }
+
+  var tabsEl = document.getElementById('tabs');
+  TAB_DEFS.forEach(function(def) {
+    var btn = document.createElement('button');
+    btn.className = getTabClass(def.key, def.isMix);
+    btn.textContent = def.key;
+    btn.setAttribute('data-deck', def.key);
+    btn.addEventListener('click', (function(d) {
+      return function() { selectDeck(d.key, d.isMix); };
+    })(def));
+    tabsEl.appendChild(btn);
+  });
+
+  document.getElementById('btn-draw').addEventListener('click', drawCard);
+  document.getElementById('btn-skip').addEventListener('click', drawCard);
+
+  initDeck();
+})();
+</script>
